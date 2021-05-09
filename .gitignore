@@ -1,5 +1,12 @@
 **/.DS_Store
 
+
+
+*.log
+*.temp
+vendor/
+save/
+
 # Build and Release Folders
 
 bin-debug/
