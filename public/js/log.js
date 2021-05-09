@@ -76,9 +76,22 @@ $(function() {
 
             },
             function(r, err) {
-                $("#reportmsg").html(r);
+
+                switch (parseInt(r)) {
+                    case 3:
+                        $("#reportmsg").html("success login");
+                        //window.location.href = "./pages/main.html"
+                        break;
+                    case 2:
+                        $("#reportmsg").html("password failed");
+                        break;
+                    default:
+                        $("#reportmsg").html("no such user");
+                }
+
+
                 console.log(r);
-                console.log(err);
+
                 //window.location.href = "./pages/main.html";
             }
         );

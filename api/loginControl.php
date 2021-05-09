@@ -22,12 +22,12 @@ if ($method == "login") {
             setcookie('userid',$uname);
             $_SESSION["user"] = $username;
 
-            echo "success login 3";
+            echo "3";
         } else {
-            echo "password fail 2";
+            echo "2";
         }
     } else {
-        echo "no that user 1";
+        echo "1";
     }
 
 //signup user attempt------------
