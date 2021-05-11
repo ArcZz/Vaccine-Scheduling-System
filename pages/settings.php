@@ -1,275 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- edit-profile23:03-->
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
-</head>
+<?php include("header.php");?>
 
 <body>
     <div class="main-wrapper">
-        <div class="header">
-            <div class="header-left">
-                <a href="index-2.html" class="logo">
-                    <span> Vaccine schedule </span>
-                </a>
-            </div>
-            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-
-            <ul class="nav user-menu float-right">
-
-                <li class="nav-item dropdown has-arrow">
-                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
-							<span class="status online"></span></span>
-                        <span> Patient</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-
-                        <a class="dropdown-item" href="../">Logout</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="../">Logout</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li class=" menu-title">Menu</li>
-                        <li>
-                            <a href="profile.html"><i class="fa fa-user"></i> <span>Profile</span></a>
-                        </li>
-                        <li>
-                            <a href="offer.html"><i class="fa fa-envelope-o "></i> <span>Vaccine Offers</span></a>
-                        </li>
-                        <li>
-                            <a href="attendance.html"><i class="fa fa-calendar-check-o "></i> <span>Availability</span></a>
-                        </li>
-
-                        <li>
-                            <a href="settings.html"><i class="fa fa-user-md"></i> <span>Information</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="main.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                        </li>
-                        <li>
-                            <a href="add-appointment.html"><i class="fa fa-plus"></i> <span>Add Appointment</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-
+          <?php $identity = "Provider"; $num=0; include("menubar.php");?>
+    
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <h4 class="page-title">Profile Infomation</h4>
+                    <div class="col-lg-8 offset-lg-2">
+                        <form>
+                            <h3 class="page-title">Provider Infomation</h3>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Company Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Person</label>
+                                        <input class="form-control " value="Daniel Porter" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input class="form-control " value="3864 Quiet Valley Lane, Sherman Oaks, CA, 91403" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select class="form-control select">
+                                            <option>USA</option>
+                                            <option>United Kingdom</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input class="form-control" value="Sherman Oaks" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>State/Province</label>
+                                        <select class="form-control select">
+                                            <option>California</option>
+                                            <option>Alaska</option>
+                                            <option>Alabama</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>Postal Code</label>
+                                        <input class="form-control" value="91403" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" value="danielporter@example.com" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input class="form-control" value="818-978-7102" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mobile Number</label>
+                                        <input class="form-control" value="818-635-5579" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Fax</label>
+                                        <input class="form-control" value="818-978-7102" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Website Url</label>
+                                        <input class="form-control" value="https://www.example.com" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center m-t-20">
+                                    <button type="button" class="btn btn-primary submit-btn">Save</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <form>
-                    <div class="card-box">
-                        <h3 class="card-title">Basic Informations</h3>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="profile-img-wrap">
-                                    <img class="inline-block" src="assets/img/user.jpg" alt="user">
-                                    <div class="fileupload btn">
-                                        <span class="btn-text">edit</span>
-                                        <input class="upload" type="file">
-                                    </div>
-                                </div>
-                                <div class="profile-basic">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group form-focus">
-                                                <label class="focus-label">First Name</label>
-                                                <input type="text" class="form-control floating" value="John">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group form-focus">
-                                                <label class="focus-label">Last Name</label>
-                                                <input type="text" class="form-control floating" value="Doe">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group form-focus">
-                                                <label class="focus-label">Birth Date</label>
-                                                <div class="cal-icon">
-                                                    <input class="form-control floating datetimepicker" type="text" value="05/06/1985">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group form-focus select-focus">
-                                                <label class="focus-label">Gendar</label>
-                                                <select class="select form-control floating">
-                                                    <option value="male selected">Male</option>
-                                                    <option value="female">Female</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-box">
-                        <h3 class="card-title">Contact Informations</h3>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Address</label>
-                                    <input type="text" class="form-control floating" value="4487 Snowbird Lane">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">State</label>
-                                    <input type="text" class="form-control floating" value="New York">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Country</label>
-                                    <input type="text" class="form-control floating" value="United States">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Pin Code</label>
-                                    <input type="text" class="form-control floating" value="10523">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Phone Number</label>
-                                    <input type="text" class="form-control floating" value="631-889-3206">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-box">
-                        <h3 class="card-title">Education Informations</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Institution</label>
-                                    <input type="text" class="form-control floating" value="Oxford University">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Subject</label>
-                                    <input type="text" class="form-control floating" value="Computer Science">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Starting Date</label>
-                                    <div class="cal-icon">
-                                        <input type="text" class="form-control floating datetimepicker" value="01/06/2002">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Complete Date</label>
-                                    <div class="cal-icon">
-                                        <input type="text" class="form-control floating datetimepicker" value="31/05/2006">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Degree</label>
-                                    <input type="text" class="form-control floating" value="BE Computer Science">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Grade</label>
-                                    <input type="text" class="form-control floating" value="Grade A">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="add-more">
-                            <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i> Add More Institute</a>
-                        </div>
-                    </div>
-                    <div class="card-box">
-                        <h3 class="card-title">Experience Informations</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Company Name</label>
-                                    <input type="text" class="form-control floating" value="Digital Devlopment Inc">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Location</label>
-                                    <input type="text" class="form-control floating" value="United States">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Job Position</label>
-                                    <input type="text" class="form-control floating" value="Web Developer">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Period From</label>
-                                    <div class="cal-icon">
-                                        <input type="text" class="form-control floating datetimepicker" value="01/07/2007">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-focus">
-                                    <label class="focus-label">Period To</label>
-                                    <div class="cal-icon">
-                                        <input type="text" class="form-control floating datetimepicker" value="08/06/2018">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="add-more">
-                            <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i> Add More Experience</a>
-                        </div>
-                    </div>
-                    <div class="text-center m-t-20">
-                        <button class="btn btn-primary submit-btn" type="button">Save</button>
-                    </div>
-                </form>
             </div>
             <div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
@@ -488,12 +325,10 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/select2.min.js"></script>
-    <script src="assets/js/moment.min.js"></script>
-    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
 
-<!-- edit-profile23:05-->
+<!-- settings23:11-->
 
 </html>

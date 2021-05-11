@@ -33,7 +33,6 @@ $(function() {
                 function(data) {
                     console.log(data);
                     if (data == "success") {
-
                         $(location).attr('href', "index.php")
                         return false;
                     } else if (data == "fail") {

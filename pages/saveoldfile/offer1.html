@@ -2,15 +2,16 @@
 <html lang="en">
 
 
-<!-- profile22:59-->
+<!-- localization24:04-->
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <title>VVS</title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
@@ -87,136 +88,81 @@
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-sm-7 col-6">
-                        <h4 class="page-title">User Infomation</h4>
-                    </div>
-
-                    <div class="col-sm-5 col-6 text-right m-b-30">
-                        <a href="editprofile.html" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Edit Profile</a>
-                    </div>
-                </div>
-                <div class="card-box profile-header">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="profile-view">
-
-                                <div class="profile-basic">
-                                    <div class="row">
-
-                                        <div class="col-md-12">
-                                            <h3 class="user-name m-t-0 mb-0">Zhang, Zhi</h3>
-                                            <small class="text-muted">afadsfd</small>
-                                            <div class="staff-id">Employee ID : DR-0001</div>
-                                            <ul class="personal-info">
-                                                <li>
-                                                    <span class="title">Phone:</span>
-                                                    <span class="text"><a href="#">770-889-6484</a></span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Email:</span>
-                                                    <span class="text"><a href="#">cristinagroves@example.com</a></span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Birthday:</span>
-                                                    <span class="text">3rd March</span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Address:</span>
-                                                    <span class="text">714 Burwell Heights Road, Bridge City, TX, 77611</span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Gender:</span>
-                                                    <span class="text">Male</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                    <div class="col-lg-8 offset-lg-2">
+                        <form>
+                            <h3 class="page-title">Basic Settings</h3>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Default Country</label>
+                                        <select class="select">
+                                            <option selected="selected">USA</option>
+                                            <option>United Kingdom</option>
+                                        </select>
                                     </div>
                                 </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Date Format</label>
+                                        <select class="select">
+                                            <option value="d/m/Y">15/05/2016</option>
+                                            <option value="d.m.Y">15.05.2016</option>
+                                            <option value="d-m-Y">15-05-2016</option>
+                                            <option value="m/d/Y">05/15/2016</option>
+                                            <option value="Y/m/d">2016/05/15</option>
+                                            <option value="Y-m-d">2016-05-15</option>
+                                            <option value="M d Y">May 15 2016</option>
+                                            <option selected="selected" value="d M Y">15 May 2016</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Timezone</label>
+                                        <select class="select">
+                                            <option>(UTC +5:30) Antarctica/Palmer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Default Language</label>
+                                        <select class="select">
+                                            <option>English</option>
+                                            <option selected="selected">French</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Currency Code</label>
+                                        <select class="select">
+                                            <option selected="selected">USD</option>
+                                            <option>Pound</option>
+                                            <option>EURO</option>
+                                            <option>Ringgit</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Currency Symbol</label>
+                                        <input class="form-control" readonly value="$" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 text-center m-t-20">
+                                    <button type="button" class="btn btn-primary submit-btn">Accept</button>
+
+                                </div>
+                                <div class="col-sm-6 text-center m-t-20">
+                                    <button type="button" class="btn btn-primary submit-btn">Reject</button>
+
+                                </div>
+
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-                <div class="tab-content">
-                    <div class="tab-pane show active" id="about-cont">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-box">
-                                    <h3 class="card-title">Education Informations</h3>
-                                    <div class="experience-box">
-                                        <ul class="experience-list">
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">International College of Medical Science (UG)</a>
-                                                        <div>MBBS</div>
-                                                        <span class="time">2001 - 2003</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">International College of Medical Science (PG)</a>
-                                                        <div>MD - Obstetrics & Gynaecology</div>
-                                                        <span class="time">1997 - 2001</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-box mb-0">
-                                    <h3 class="card-title">Experience</h3>
-                                    <div class="experience-box">
-                                        <ul class="experience-list">
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Consultant Gynecologist</a>
-                                                        <span class="time">Jan 2014 - Present (4 years 8 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Consultant Gynecologist</a>
-                                                        <span class="time">Jan 2009 - Present (6 years 1 month)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Consultant Gynecologist</a>
-                                                        <span class="time">Jan 2004 - Present (5 years 2 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
             <div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
@@ -434,10 +380,11 @@
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/select2.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
 
-<!-- profile23:03-->
+<!-- localization24:04-->
 
 </html>

@@ -1,177 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- taxes23:26-->
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
-</head>
+<?php include "header.php";?>
 
 <body>
     <div class="main-wrapper">
-        <div class="header">
-            <div class="header-left">
-                <a href="index-2.html" class="logo">
-                    <span> Vaccine schedule </span>
-                </a>
-            </div>
-            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-
-            <ul class="nav user-menu float-right">
-
-                <li class="nav-item dropdown has-arrow">
-                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
-							<span class="status online"></span></span>
-                        <span> Patient</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-
-                        <a class="dropdown-item" href="../">Logout</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="../">Logout</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li class=" menu-title">Menu</li>
-                        <li>
-                            <a href="profile.html"><i class="fa fa-user"></i> <span>Profile</span></a>
-                        </li>
-                        <li>
-                            <a href="offer.html"><i class="fa fa-envelope-o "></i> <span>Vaccine Offers</span></a>
-                        </li>
-                        <li>
-                            <a href="attendance.html"><i class="fa fa-calendar-check-o "></i> <span>Availability</span></a>
-                        </li>
-
-                        <li>
-                            <a href="settings.html"><i class="fa fa-user-md"></i> <span>Information</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="main.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                        </li>
-                        <li>
-                            <a href="add-appointment.html"><i class="fa fa-plus"></i> <span>Add Appointment</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+          <?php $identity = "Provider";$num = 2; include("menubar.php");?>
 
 
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-sm-8 col-6">
-                        <h4 class="page-title">ALL Offers</h4>
-                    </div>
-                    <div class="col-sm-4 col-6 text-right m-b-30">
-                        <a href="offer1.html" class="btn btn-success btn-rounded"><i class="fa fa-bell"></i> current new offers</a>
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Appointment</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong>Note!</strong> There is no current avaiable offer for you currently.
-
-                        </div>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success!</strong> Click <a href="offer1.html" class="alert-link"> LINK</a> to accept offer sent successfully.
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									
-								</button>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped custom-table mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Tax Name </th>
-                                        <th>Tax Percentage (%) </th>
-                                        <th>Status</th>
-                                        <th class="text-right">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>VAT</td>
-                                        <td>14%</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="custom-badge status-red dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-													Inactive
-												</a>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Active</a>
-                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="edit-tax.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_tax"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>GST</td>
-                                        <td>30%</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="custom-badge status-green dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-													Active
-												</a>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Active</a>
-                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="edit-tax.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_tax"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-lg-8 offset-lg-2">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Appointment ID</label>
+                                        <input class="form-control" type="text" value="APT-0001" readonly="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Patient Name</label>
+                                        <select class="select">
+											<option>Select</option>
+											<option>Jennifer Robinson</option>
+											<option>Terry Baker</option>
+										</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <select class="select">
+                                            <option>Select</option>
+                                            <option>Dentists</option>
+                                            <option>Neurology</option>
+                                            <option>Opthalmology</option>
+                                            <option>Orthopedics</option>
+                                            <option>Cancer Department</option>
+                                            <option>ENT Department</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Doctor</label>
+                                        <select class="select">
+											<option>Select</option>
+											<option>Cristina Groves</option>
+											<option>Marie Wells</option>
+											<option>Henry Daniels</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <div class="cal-icon">
+                                            <input type="text" class="form-control datetimepicker">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Time</label>
+                                        <div class="time-icon">
+                                            <input type="text" class="form-control" id="datetimepicker3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Patient Email</label>
+                                        <input class="form-control" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Patient Phone Number</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea cols="30" rows="4" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="display-block">Appointment Status</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="product_active" value="option1" checked>
+                                    <label class="form-check-label" for="product_active">
+									Active
+									</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status" id="product_inactive" value="option2">
+                                    <label class="form-check-label" for="product_inactive">
+									Inactive
+									</label>
+                                </div>
+                            </div>
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">Create Appointment</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -382,19 +325,7 @@
                     <div class="topnav-dropdown-footer">
                         <a href="chat.html">See all messages</a>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div id="delete_tax" class="modal fade delete-modal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="assets/img/sent.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to delete this Tax?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -405,10 +336,18 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+        $(function() {
+            $('#datetimepicker3').datetimepicker({
+                format: 'LT'
+
+            });
+        });
+    </script>
 </body>
 
-
-<!-- taxes23:27-->
 
 </html>

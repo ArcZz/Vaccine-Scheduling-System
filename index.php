@@ -30,10 +30,10 @@
 
                             <form name="login" id="login" class="my-login-validation needs-validation" novalidate>
                                 <div class="form-group">
-                                    <label for="email">Username</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="" autofocus>
-                                    <div class="invalid-feedback">
-                                        Email is invalid
+                                    <label id="ulabel" for="email">Email Address</label>
+                                    <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+                                    <div id="ufeedback" class="invalid-feedback">
+                                        Email is invalid, eg: xxx@mac.com
                                     </div>
                                 </div>
 
@@ -50,13 +50,14 @@
 
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required checked>
-                                        <label class="form-check-label" for="inlineRadio1">Provider</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" required>
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rPatient" value="option2" required checked>
                                         <label class="form-check-label" for="inlineRadio2">Patient</label>
                                     </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rProvider" value="option1" required>
+                                        <label class="form-check-label" for="inlineRadio1">Provider</label>
+                                    </div>
+
                                 </div>
                                 <div class="form-group m-0">
                                     <button type="submit" class="btn btn-primary btn-block">
@@ -64,8 +65,10 @@
                                     </button>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    <p id="reportmsg" class="text-success text-center">Some message goes here</p>
-                                    Don't have an account? <a href="pages/signup.html">Create One</a>
+                                    <p id="reportmsg" class="text-danger text-center"> </p>
+                                    <p id="successmsg" class="text-success text-center"> </p>
+
+                                    Don't have an account? <a href="pages/signup.php">Create One</a>
                                 </div>
                             </form>
                         </div>
@@ -86,6 +89,7 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 
 

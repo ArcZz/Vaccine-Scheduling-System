@@ -1,197 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- leave-type24:06-->
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
-</head>
+<?php include("header.php");?>
 
 <body>
     <div class="main-wrapper">
-        <div class="header">
-            <div class="header-left">
-                <a href="index-2.html" class="logo">
-                    <span> Vaccine schedule </span>
-                </a>
-            </div>
-            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-
-            <ul class="nav user-menu float-right">
-
-                <li class="nav-item dropdown has-arrow">
-                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
-							<span class="status online"></span></span>
-                        <span> Patient</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-
-                        <a class="dropdown-item" href="../">Logout</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="../">Logout</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li class=" menu-title">Menu</li>
-                        <li>
-                            <a href="profile.html"><i class="fa fa-user"></i> <span>Profile</span></a>
-                        </li>
-                        <li>
-                            <a href="offer.html"><i class="fa fa-envelope-o "></i> <span>Vaccine Offers</span></a>
-                        </li>
-                        <li>
-                            <a href="attendance.html"><i class="fa fa-calendar-check-o "></i> <span>Availability</span></a>
-                        </li>
-
-                        <li>
-                            <a href="settings.html"><i class="fa fa-user-md"></i> <span>Information</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="main.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                        </li>
-                        <li>
-                            <a href="add-appointment.html"><i class="fa fa-plus"></i> <span>Add Appointment</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
+          <?php $identity = "Patient"; $num = 0; include("menubar.php");?>
+     
 
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-sm-8 col-5">
-                        <h4 class="page-title">Leave Type</h4>
-                    </div>
-                    <div class="col-sm-4 col-7 text-right m-b-30">
-                        <a href="add-leave-type.html" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Leave Type</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-striped custom-table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Leave Type</th>
-                                        <th>Leave Days</th>
-                                        <th>Status</th>
-                                        <th class="text-right">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>Casual Leave</td>
-                                        <td>12 Days</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="custom-badge status-green dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                    Active
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">Active</a>
-                                                    <a href="#" class="dropdown-item">Inactive</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="edit-leave-type.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_leavetype"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            2
-                                        </td>
-                                        <td>Medical Leave</td>
-                                        <td>12 Days</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="custom-badge status-red dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                    Inactive
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Active</a>
-                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="edit-leave-type.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_leavetype"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td>Loss of Pay</td>
-                                        <td>-</td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="custom-badge status-green dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                    Active
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Active</a>
-                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="edit-leave-type.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_leavetype"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-lg-8 offset-lg-2">
+                        <form>
+                            <h3 class="page-title">Patient Infomation</h3>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Company Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Contact Person</label>
+                                        <input class="form-control " value="Daniel Porter" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input class="form-control " value="3864 Quiet Valley Lane, Sherman Oaks, CA, 91403" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select class="form-control select">
+                                            <option>USA</option>
+                                            <option>United Kingdom</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input class="form-control" value="Sherman Oaks" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>State/Province</label>
+                                        <select class="form-control select">
+                                            <option>California</option>
+                                            <option>Alaska</option>
+                                            <option>Alabama</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label>Postal Code</label>
+                                        <input class="form-control" value="91403" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" value="danielporter@example.com" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input class="form-control" value="818-978-7102" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mobile Number</label>
+                                        <input class="form-control" value="818-635-5579" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Fax</label>
+                                        <input class="form-control" value="818-978-7102" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Website Url</label>
+                                        <input class="form-control" value="https://www.example.com" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center m-t-20">
+                                    <button type="button" class="btn btn-primary submit-btn">Save</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -405,29 +319,17 @@
                 </div>
             </div>
         </div>
-        <div id="delete_leavetype" class="modal fade delete-modal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="assets/img/sent.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to delete this Leave Type?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/select2.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
 
-<!-- leave-type24:06-->
+<!-- settings23:11-->
 
 </html>

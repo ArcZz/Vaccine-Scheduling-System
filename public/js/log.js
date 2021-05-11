@@ -1,63 +1,29 @@
-$("#signup").click(function() {
-    $("#first").fadeOut("fast", function() {
-        $("#second").fadeIn("fast");
-    });
-});
-
-$("#signin").click(function() {
-    $("#second").fadeOut("fast", function() {
-        $("#first").fadeIn("fast");
-    });
-});
-
-
-
-
-
-
 $(function() {
 
-    $("form[name='registration']").validate({
-        rules: {
-            firstname: "required",
-            lastname: "required",
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true,
-                minlength: 5
-            }
-        },
+    $("#rPatient").click(function() {
 
-        messages: {
-            firstname: "Please enter your firstname",
-            lastname: "Please enter your lastname",
-            password: {
-                required: "Please provide a password",
-                minlength: "Your password must be at least 5 characters long"
-            },
-            email: "Please enter a valid email address"
-        },
-
-        submitHandler: function(form) {
-            form.submit();
-        }
+        $("#ulabel").text("Email Address");
+        $("#phone").replaceWith('<input id="email" type="email" class="form-control" name="email" value="" required autofocus> ');
+        $("#ufeedback").text(" Email is invalid, eg: xxx@mac.com");
     });
-});
+
+    $("#rProvider").click(function() {
+        $("#ulabel").text("Phone Number");
+        $("#email").replaceWith('<input id="phone" type="text" pattern="[0-9]{6,10}"  class="form-control" name="phone" value="" required autofocus> ');
+        $("#ufeedback").text("Phone Number is invalid, eg: 5731119999");
+    });
 
 
-
-
-
-
-
-
-$(function() {
 
 
     $("#login").submit(function(e) {
+        var identity = "patient";
+        if ($('#rPatient').is(":checked")) {
+            identity = "patient";
+        } else {
+            identity = "provider";
+
+        }
 
         e.preventDefault();
         e.stopPropagation();
@@ -69,32 +35,50 @@ $(function() {
             return false;
 
         }
+
+
         $.post("api/loginControl.php", {
+
                 method: "login",
+                who: identity,
                 user: $(" #email ").val(),
                 pass: $(" #password ").val(),
 
             },
             function(r, err) {
-
                 switch (parseInt(r)) {
                     case 3:
-                        $("#reportmsg").html("success login");
-                        //window.location.href = "./pages/main.html"
+                        $("#reportmsg").remove();
+                        $("#successmsg").html("Success login");
+                        var udata = {
+                            identity: 'patient',
+                            username: $(" #email ").val(),
+                        }
+                        Cookies.set('userdata', JSON.stringify(udata), { expires: 10, path: '/' });
+                        if (identity == "patient") {
+                            window.location.href = "./pages/offer.php"
+                        } else {
+                            window.location.href = "./pages/main.php"
+                        }
                         break;
                     case 2:
-                        $("#reportmsg").html("password failed");
+
+                        $("#reportmsg").html("Password failed");
+
                         break;
                     default:
-                        $("#reportmsg").html("no such user");
+                         
+                        $("#reportmsg").html(r);
+                        // $("#reportmsg").html("Can not find this user");
                 }
 
 
-                console.log(r);
+
 
                 //window.location.href = "./pages/main.html";
             }
         );
+
 
 
     });

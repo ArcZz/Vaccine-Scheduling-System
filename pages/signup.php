@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <title>VVS</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -20,75 +20,84 @@
                 <div class="card">
                     <div class="card fat">
                         <article class="card-body">
-                            <a href="../index.html" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                            <a href="../index.php" class="float-right btn btn-outline-primary mt-1">Log in</a>
                             <h4 class="card-title mt-2">Sign up</h4>
                             <hr />
                             <form class=" mt-4">
-
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" value="option1">
-                                        <span class="form-check-label"> Provider </span>
+                                        <input class="form-check-input" type="radio" name="gender" value="option1" checked>
+                                        <span class="form-check-label"> Patient</span>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="gender" value="option2">
-                                        <span class="form-check-label"> Patient</span>
+                                        <span class="form-check-label"> Provider </span>
                                     </div>
-                                </div>
-                                <!-- form-group end.// -->
-                                <div class="form-row">
 
-                                    <div class="col form-group">
-                                        <label>First name </label>
-                                        <input type="text" class="form-control" placeholder="">
-                                    </div>
-                                    <!-- form-group end.// -->
-                                    <div class="col form-group">
-                                        <label>Last name</label>
-                                        <input type="text" class="form-control" placeholder=" ">
-                                    </div>
-                                    <!-- form-group end.// -->
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" class="form-control" id="fullname">
+
                                 </div>
                                 <!-- form-row end.// -->
                                 <div class="form-group">
                                     <label>Email address</label>
-                                    <input type="email" class="form-control" placeholder="">
-                                    <small class="form-text text-muted">We'll never share your email with anyone
-                                        else.</small>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <small id="emailHelp" class="form-text text-muted">Email address will be your username.</small>
+
+
                                 </div>
-                                <!-- form-group end.// -->
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control" placeholder="">
-                                    <small class="form-text text-muted">We'll never share your email with anyone
-                                        else.</small>
-                                </div>
-                                <!-- form-group end.// -->
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control" placeholder="">
-                                    <small class="form-text text-muted">We'll never share your email with anyone
-                                        else.</small>
-                                </div>
-                                <!-- form-group end.// -->
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control" placeholder="">
-                                    <small class="form-text text-muted">We'll never share your email with anyone
-                                        else.</small>
+                                <div class="form-group ">
+                                    <label for="example-date-input">Date</label>
+                                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+
                                 </div>
                                 <!-- form-group end.// -->
 
-                                <div class="form-group">
-                                    <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" value="option1">
-                                        <span class="form-check-label"> Male </span>
-                                    </label>
-                                    <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" value="option2">
-                                        <span class="form-check-label"> Female</span>
-                                    </label>
+
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>Phone Number </label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                    <!-- form-group end.// -->
+                                    <div class="col form-group">
+                                        <label>SSN</label>
+                                        <input type="email" class="form-control" id="SSN" placeholder="###-##-####" maxlength="12">
+
+
+                                    </div>
+                                    <!-- form-group end.// -->
                                 </div>
+
+                                <!-- form-group end.// -->
+
+                                <div class="form-group">
+
+                                    <label class="control-label" for="SSN">SSN:</label>
+                                    <input type="email" class="form-control" id="SSN" placeholder="###-##-####" maxlength="12">
+
+
+                                </div>
+
+                                <!-- form-group end.// -->
+                                <div class="form-group">
+                                    <label>Email address</label>
+                                    <input type="email" class="form-control" placeholder="">
+                                    <small class="form-text text-muted">We'll never share your email with anyone
+                                        else.</small>
+                                </div>
+                                <!-- form-group end.// -->
+                                <div class="form-group">
+                                    <label>Email address</label>
+                                    <input type="email" class="form-control" placeholder="">
+                                    <small class="form-text text-muted">We'll never share your email with anyone
+                                        else.</small>
+                                </div>
+
                                 <!-- form-group end.// -->
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -99,7 +108,7 @@
                                     <div class="form-group col-md-6">
                                         <label>Country</label>
                                         <select id="inputState" class="form-control">
-                                            <option> Choose...</option>
+                                            <option>China</option>
                                             <option>Uzbekistan</option>
                                             <option>Russia</option>
                                             <option selected="">United States</option>
@@ -109,11 +118,20 @@
                                     </div>
                                     <!-- form-group end.// -->
                                 </div>
+
+
+
+
                                 <!-- form-row.// -->
                                 <div class="form-group">
                                     <label>Create password</label>
                                     <input class="form-control" type="password">
                                 </div>
+                                <div class="form-group">
+                                    <label>confirm password</label>
+                                    <input class="form-control" type="password">
+                                </div>
+
                                 <!-- form-group end.// -->
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-block"> Register </button>
@@ -125,7 +143,7 @@
                             </form>
                         </article>
                         <!-- card-body end .// -->
-                        <div class="border-top card-body text-center"> Have an account? <a href="../index.html">Log
+                        <div class="border-top card-body text-center"> Have an account? <a href="../index.php">Log
                                 In</a>
                         </div>
                     </div>
@@ -148,7 +166,7 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 
 
-    <script src="../public/js/log.js"></script>
+    <script src="../public/js/signup.js"></script>
 </body>
 
 </html>
