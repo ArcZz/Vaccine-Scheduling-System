@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '30ce43a25fd1d7e3bff281a27dc58efa5a7640fa',
+    'reference' => '4dfff7ec3d5f38de6eb55b63077357c813d941c1',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '30ce43a25fd1d7e3bff281a27dc58efa5a7640fa',
+      'reference' => '4dfff7ec3d5f38de6eb55b63077357c813d941c1',
     ),
     'ezsql/ezsql' => 
     array (
@@ -52,6 +52,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '14968136b7bd4fc6e96ac19cd1fb9d88c87ea4c8',
+    ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v5.2.1',
+      'version' => '5.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f42c9110abe98dd6cfe9053c49bc86acc70b2d23',
     ),
     'psr/container' => 
     array (

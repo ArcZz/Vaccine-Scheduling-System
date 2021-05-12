@@ -15,13 +15,19 @@ $(function() {
 
 
 
-
     $("#login").submit(function(e) {
         var identity = "patient";
+        var phonenum = 0;
+        var uemail = "";
         if ($('#rPatient').is(":checked")) {
             identity = "patient";
+            uemail = $(" #email ").val();
+            phonenum = 0;
+
         } else {
             identity = "provider";
+            uemail = "";
+            phonenum = $("#phone").val();
 
         }
 
@@ -39,40 +45,39 @@ $(function() {
 
         $.post("api/loginControl.php", {
 
-                method: "login",
                 who: identity,
-                user: $(" #email ").val(),
+                user: uemail,
                 pass: $(" #password ").val(),
+                phone: phonenum
 
             },
             function(r, err) {
-                switch (parseInt(r)) {
-                    case 3:
-                        $("#reportmsg").remove();
-                        $("#successmsg").html("Success login");
-                        var udata = {
-                            identity: 'patient',
-                            username: $(" #email ").val(),
-                        }
-                        Cookies.set('userdata', JSON.stringify(udata), { expires: 10, path: '/' });
-                        if (identity == "patient") {
-                            window.location.href = "./pages/offer.php"
-                        } else {
-                            window.location.href = "./pages/main.php"
-                        }
-                        break;
-                    case 2:
+                if (isNaN(r)) {
+                    $("#reportmsg").remove();
+                    $("#successmsg").html("Success login");
+                    // var udata = {
+                    //     identity: 'patient',
+                    //     username: $(" #email ").val(),
+                    // }
+                    Cookies.set('userdata', JSON.stringify(r), { expires: 7, path: '/' });
+                    if (identity == "patient") {
+                        window.location.href = "./pages/offer.php"
+                    } else {
+                        window.location.href = "./pages/main.php"
+                    }
 
-                        $("#reportmsg").html("Password failed");
 
-                        break;
-                    default:
-                         
-                        $("#reportmsg").html(r);
-                        // $("#reportmsg").html("Can not find this user");
+                } else {
+                    switch (parseInt(r)) {
+                        case 2:
+                            $("#reportmsg").html("Password failed");
+                            break;
+                        default:
+                            $("#reportmsg").html(r);
+                            //$("#reportmsg").html("Can not find this user");
+                    }
+
                 }
-
-
 
 
                 //window.location.href = "./pages/main.html";

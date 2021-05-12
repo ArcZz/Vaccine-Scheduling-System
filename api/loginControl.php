@@ -1,15 +1,15 @@
 <?php
 
 include 'db.php';
+include 'jwtkey.php';
 session_start();
 
-$method = htmlspecialchars($_POST['method']);
-$username = htmlspecialchars($_POST['user']);
+$phone = htmlspecialchars($_POST['phone']);
+$username = htmlspecialchars($_POST['user'])?:'';
 $password = htmlspecialchars($_POST['pass']);
 $who = htmlspecialchars($_POST['who']);
 
-
-//login user attempt------------
+//login patient
 
 if ($who == "patient") {
     $db->query_prepared('SELECT pa_id, pa_password, pa_name, email FROM Patient WHERE email = ?', [$username]);
@@ -24,20 +24,31 @@ if ($who == "patient") {
 
     if (isset($uemail)) {
         if ($password == $upassword) {
-            $_SESSION["user"] = $username;
-          
-
-            echo "3";
+            $jwk = issuetoken($uid, "patient");
+            echo $jwk;
         } else {
-            echo "2";
+            echo 2;
         }
     } else {
-        echo "1";
+        // no user found
+        echo 1;
     }
 
-//signup user attempt------------
+// login provider
 } else {
 
+    $db->query_prepared('SELECT pr_id, pr_password FROM Provider WHERE pr_phone = ?', [$phone]);
+    $user = $db->queryResult();
+    if (isset($user[0]->pr_id)) {
+        if ($password == $user[0]->pr_password) {
+            $jwk = issuetoken( $user[0]->pr_id, "provider");
+            echo $jwk;
+        } else {
+            echo 2;
+        }
+    } else {
+         // no user found
+        echo 1;
+    }
 
-    echo "sign up failed";
 }

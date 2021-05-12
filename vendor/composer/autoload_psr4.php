@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'ezsql\\' => array($vendorDir . '/ezsql/ezsql/lib'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
 );
