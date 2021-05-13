@@ -1,5 +1,4 @@
 <?php include("header.php");?>
-
 <body>
     <div class="main-wrapper">
           <?php $identity = "Patient"; $num = 0; include("menubar.php");?>
