@@ -1,7 +1,7 @@
 <?php
 
 include 'db.php';
-//include 'jwtkey.php';
+include 'jwtkey.php';
 session_start();
 
 $id = backid($k);
