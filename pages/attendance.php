@@ -1,11 +1,9 @@
 <?php include("header.php");?>
 
-
-
 <body>
     <div class="main-wrapper">
          <?php $identity = "Patient"; $num = 1; include("menubar.php");?>
-     
+
 
 
         <div class="page-wrapper">
@@ -13,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <form>
-                            <h3 class="page-title">Company Settings</h3>
+                            <h3 class="page-title">Preferred Time Slot</h3>
                             <div class="row">
                                 <div class="table-responsive">
                                     <table class="table table-striped custom-table">
@@ -31,78 +29,78 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>time1</td>
+                                                <td>8:00 AM to 12:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 1>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 4>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 7>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 10>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 13>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 16>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 19>
                                                 </td>
 
                                             </tr>
                                             <tr>
-                                                <td>Time2</td>
+                                                <td>12:00 PM to 16:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 2>
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 5>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 8>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 11>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 14>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 17>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 20>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Time3</td>
+                                                <td>16:00 PM to 20:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 3>
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 6>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 9>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 12>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 15>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 18>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" checked="">
+                                                    <input type="checkbox" name = "slot" value = 21>
                                                 </td>
                                             </tr>
 
@@ -114,10 +112,21 @@
 
                             <div class="row">
                                 <div class="col-sm-12 text-center m-t-20">
-                                    <button type="button" class="btn btn-primary submit-btn">Save Changes</button>
+                                    <button type="submit" name = "submit-slot" class="btn btn-primary submit-btn">Save Changes</button>
                                 </div>
                             </div>
                         </form>
+                        <?php
+                        echo "test test";
+                            if(isset($_POST['submit-slot'])){
+                              if(isset($_POST['slot'])){
+                                foreach($_POST['slot'] as $slot){
+                                  print "you have selected $slot <br/>";
+                                }
+                              }
+                            }
+                        ?>
+
                     </div>
                 </div>
 
