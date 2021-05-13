@@ -1,28 +1,27 @@
 <?php
 
 include 'db.php';
-session_start();
 
-$method = htmlspecialchars($_POST['method']);
-$paname = htmlspecialchars($_POST['name']);
-$ssn = htmlspecialchars($_POST['ssn']);
-$dob = htmlspecialchars($_POST['dob']);
-$paaddress = htmlspecialchars($_POST['address']);
-$paphone = htmlspecialchars($_POST['phone']);
-$email = htmlspecialchars($_POST['email']);
-$maxtravel = htmlspecialchars($_POST['distance']);
-$papassword = htmlspecialchars($_POST['password']);
+// $method = htmlspecialchars($_POST['method']);
+// $paname = htmlspecialchars($_POST['name']);
+// $ssn = htmlspecialchars($_POST['ssn']);
+// $dob = htmlspecialchars($_POST['dob']);
+// $paaddress = htmlspecialchars($_POST['address']);
+// $paphone = htmlspecialchars($_POST['phone']);
+// $email = htmlspecialchars($_POST['email']);
+// $maxtravel = htmlspecialchars($_POST['distance']);
+// $papassword = htmlspecialchars($_POST['password']);
 
 //testing
-// $method = "signup";
-// $paname = "Tester1";
-// $ssn = "123-45-9090";
-// $dob = "1998-02-12";
-// $paaddress = "123 5th Ave, New York, NY,  10003, 44.73313503620341, -73.98688182888938";
-// $paphone = "9171112333";
-// $email = 'tester1@gamil.com';
-// $maxtravel = 20;
-// $papassword = "Tester1!";
+$method = "signup";
+$paname = "Tester1";
+$ssn = "123-45-9090";
+$dob = "1998-02-12";
+$paaddress = "123 5th Ave, New York, NY,  10003, 44.73313503620341, -73.98688182888938";
+$paphone = "9171112333";
+$email = 'tester1@gamil.com';
+$maxtravel = 20;
+$papassword = "Tester1!";
 
 if ($method == "signup") {
   // check is patient already in Database
