@@ -97,7 +97,7 @@ if ($identity == "Provider") {
         echo ' class="active"';
     }
     ?>>
-                     <a href="attendance.php"><i class="fa fa-calendar-check-o "></i> <span>Availability</span></a>
+                     <a href="slot.php"><i class="fa fa-calendar-check-o "></i> <span>Availability</span></a>
                  </li>
                  <li <?php if ($num == 2) {
         echo ' class="active"';

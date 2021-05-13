@@ -1,16 +1,22 @@
-<?php include("header.php");?>
+<?php include("header.php");
+//include '../api/jwtkey.php';
+include '../api/db.php';
+?>
 
 <body>
     <div class="main-wrapper">
-         <?php $identity = "Patient"; $num = 1; include("menubar.php");?>
+         <?php $identity = "Patient"; $num = 1; include("menubar.php");
+         $id = backid($k);
+         //$id = 1;
 
+         ?>
 
 
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <form>
+                        <form action = "#" method = "POST">
                             <h3 class="page-title">Preferred Time Slot</h3>
                             <div class="row">
                                 <div class="table-responsive">
@@ -31,76 +37,76 @@
                                             <tr>
                                                 <td>8:00 AM to 12:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 1>
+                                                    <input type="checkbox" name = "slot[]" value = 1>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 4>
+                                                    <input type="checkbox" name = "slot[]" value = 4>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 7>
+                                                    <input type="checkbox" name = "slot[]" value = 7>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 10>
+                                                    <input type="checkbox" name = "slot[]" value = 10>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 13>
+                                                    <input type="checkbox" name = "slot[]" value = 13>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 16>
+                                                    <input type="checkbox" name = "slot[]" value = 16>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 19>
+                                                    <input type="checkbox" name = "slot[]" value = 19>
                                                 </td>
 
                                             </tr>
                                             <tr>
                                                 <td>12:00 PM to 16:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 2>
+                                                    <input type="checkbox" name = "slot[]" value = 2>
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 5>
+                                                    <input type="checkbox" name = "slot[]" value = 5>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 8>
+                                                    <input type="checkbox" name = "slot[]" value = 8>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 11>
+                                                    <input type="checkbox" name = "slot[]" value = 11>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 14>
+                                                    <input type="checkbox" name = "slot[]" value = 14>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 17>
+                                                    <input type="checkbox" name = "slot[]" value = 17>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 20>
+                                                    <input type="checkbox" name = "slot[]" value = 20>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>16:00 PM to 20:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 3>
+                                                    <input type="checkbox" name = "slot[]" value = 3>
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 6>
+                                                    <input type="checkbox" name = "slot[]" value = 6>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 9>
+                                                    <input type="checkbox" name = "slot[]" value = 9>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 12>
+                                                    <input type="checkbox" name = "slot[]" value = 12>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 15>
+                                                    <input type="checkbox" name = "slot[]" value = 15>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 18>
+                                                    <input type="checkbox" name = "slot[]" value = 18>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot" value = 21>
+                                                    <input type="checkbox" name = "slot[]" value = 21>
                                                 </td>
                                             </tr>
 
@@ -117,11 +123,24 @@
                             </div>
                         </form>
                         <?php
-                        echo "test test";
+                        //echo "test test <br/>";
                             if(isset($_POST['submit-slot'])){
-                              if(isset($_POST['slot'])){
-                                foreach($_POST['slot'] as $slot){
-                                  print "you have selected $slot <br/>";
+                              if(!empty($_POST['slot'])){
+                                foreach($_POST['slot'] as $selected){
+                                  //echo "selected slot#: ".$selected."<br/>";
+                                  $db->flush();
+                                  $db->query_prepared('SELECT sid, pa_id FROM PatientPreferredSlot WHERE sid = ? AND pa_id = ?',
+                                                      [$selected, $id]);
+                                  $result = $db->queryResult();
+                                  $resultCount = count($result);
+                                  if($resultCount == 0){
+                                    // if not exist in DB, then add to DB
+                                    flush();
+                                    $db->query_prepared('INSERT INTO PatientPreferredSlot(sid, pa_id)
+                                                        VALUES(?,?);',
+                                                        [$selected, $id]);
+                                  }
+
                                 }
                               }
                             }
