@@ -31,6 +31,7 @@ function backid($jwt)
     catch(Exception $e){
         //0 means failed to pass
         return 0;
+
     }
 }
 
@@ -39,4 +40,4 @@ $k = issuetoken("h","name");
 //echo "/n";
 //$old = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZyIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUuY29tIiwiaWF0IjoxNjIwODU3NDc5LCJleHAiOjE2MjA4NTc0ODB9.eF5qxBpgnTo8y8DxBZx1UEjpok4Nbi9uU02LR4A3jXg";
 $ha = backid($k);
-// echo $ha['id'];
+//echo $ha['id'];

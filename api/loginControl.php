@@ -5,7 +5,7 @@ include 'jwtkey.php';
 session_start();
 
 $phone = htmlspecialchars($_POST['phone']);
-$username = htmlspecialchars($_POST['user'])?:'';
+$username = htmlspecialchars($_POST['user']);
 $password = htmlspecialchars($_POST['pass']);
 $who = htmlspecialchars($_POST['who']);
 
