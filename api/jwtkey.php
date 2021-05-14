@@ -2,13 +2,14 @@
 <?php
 require '../vendor/autoload.php';
 use \Firebase\JWT\JWT;
+
 $key = "zz2310jz1jz1433";
 
 function issuetoken($id, $who)
 {
     global $key;
     $time = time();
-    $nextWeek = time() + (1);
+    $nextWeek = time() + (10000000);
     $payload = array(
         "iat" => $time,
         "exp" => $nextWeek,
@@ -24,8 +25,9 @@ function backid($jwt)
 {
     global $key;
     try{
+       
         $decoded = JWT::decode($jwt, $key, array('HS256'));
-        $backid =array("id"=>$decoded->iat ,"who"=>$decoded->iat);
+        $backid =array("id"=>$decoded->userName ,"who"=>$decoded->who);
         return $backid;
     }
     catch(Exception $e){
@@ -35,9 +37,17 @@ function backid($jwt)
     }
 }
 
-$k = issuetoken("h","name");
+
+
+//$k = issuetoken(12,"patient");
+
 // echo $k;
-//echo "/n";
-//$old = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZyIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUuY29tIiwiaWF0IjoxNjIwODU3NDc5LCJleHAiOjE2MjA4NTc0ODB9.eF5qxBpgnTo8y8DxBZx1UEjpok4Nbi9uU02LR4A3jXg";
-$ha = backid($k);
-//echo $ha['id'];
+// echo "/n";
+// $testjwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA5NTU5MDQsImV4cCI6MTYyMDk1NTkwNSwidXNlck5hbWUiOjUyLCJ3aG8iOiJwYXRpZW50In0.sHgBDXuyHeI6bPk5SR6qM4Zvkh8QVL0P4iPRtBgVxdY";
+//$testjwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA5NTU5MDQsImV4cCI6MTYyMDk1NTkwNSwidXNlck5hbWUiOjUyLCJ3aG8iOiJwYXRpZW50In0.sHgBDXuyHeI6bPk5SR6qM4Zvkh8QVL0P4iPRtBgVxdY";
+// $ha = backid($k);
+
+// echo $ha['id'];
+
+
+// echo $ha['who'];

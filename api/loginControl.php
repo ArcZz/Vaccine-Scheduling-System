@@ -3,7 +3,7 @@
 include 'db.php';
 include 'jwtkey.php';
 session_start();
-
+$mehod = isset($_POST['method']) ? $_POST['method'] : null;
 $phone = htmlspecialchars($_POST['phone']);
 $username = htmlspecialchars($_POST['user']);
 $password = htmlspecialchars($_POST['pass']);
@@ -12,7 +12,7 @@ $who = htmlspecialchars($_POST['who']);
 //login patient
 
 if ($who == "patient") {
-    $db->query_prepared('SELECT pa_id, pa_password, pa_name, email FROM Patient WHERE email = ?', [$username]);
+    $db->query_prepared('SELECT pa_id, pa_password, pa_name, email FROM Patient WHERE email = ?', [$username] );
     $user = $db->queryResult();
     foreach ($user as $row) {
 
@@ -37,7 +37,7 @@ if ($who == "patient") {
 // login provider
 } else {
 
-    $db->query_prepared('SELECT pr_id, pr_password FROM Provider WHERE pr_phone = ?', [$phone]);
+    $db->query_prepared('SELECT pr_id, pr_password FROM Provider WHERE pr_phone = ?', [$phone] );
     $user = $db->queryResult();
     if (isset($user[0]->pr_id)) {
         if ($password == $user[0]->pr_password) {
@@ -52,3 +52,4 @@ if ($who == "patient") {
     }
 
 }
+

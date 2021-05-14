@@ -102,11 +102,13 @@ $(function() {
                     $("#successmsg").removeClass("text-danger").addClass("text-success");
 
                     $("#successmsg").html("success registe, login soon");
-
+                    $("#submit").text("loading").prop('disabled', true);
+                    Cookies.set('userdata', JSON.stringify(r), { expires: 7, path: '/' });
                     setTimeout(function() {
 
+                        console.log(r);
 
-                        window.location.href = "./offer.php"
+                        // window.location.href = "./offer.php"
 
 
 
@@ -119,7 +121,6 @@ $(function() {
                 }
 
             });
-
 
 
 

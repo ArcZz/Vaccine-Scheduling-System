@@ -94,6 +94,7 @@
 
 
     <script src="public/js/log.js"></script>
+    
 
 </body>
 

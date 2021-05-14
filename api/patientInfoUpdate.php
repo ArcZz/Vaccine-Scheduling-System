@@ -4,7 +4,7 @@ include 'db.php';
 include 'jwtkey.php';
 session_start();
 
-$id = backid($k);
+
 $method = htmlspecialchars($_POST['method']);    //when click on save -> method = 'save'
 $paname = htmlspecialchars($_POST['name']);
 $ssn = htmlspecialchars($_POST['ssn']);

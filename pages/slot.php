@@ -6,8 +6,8 @@ include '../api/db.php';
 <body>
     <div class="main-wrapper">
          <?php $identity = "Patient"; $num = 1; include("menubar.php");
-         $id = backid($k);
-         //$id = 1;
+        //  $id = backid($k);
+         $id = 1;
 
          ?>
 

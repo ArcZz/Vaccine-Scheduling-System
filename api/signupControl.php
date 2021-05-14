@@ -44,6 +44,7 @@ $result = $db->queryResult();
 
 if (isset($result[0]->pa_id)) {
     echo 0; //patient already exists
+
 } else { // create new patient
     //echo "1";
     $birthyear = (int) explode('-', $dob)[0];
@@ -62,11 +63,13 @@ if (isset($result[0]->pa_id)) {
             $paphone, $email, $maxtravel, $papassword, $pid]);
     
     $result2 = $db->queryResult();
+ 
+
     
     $db->query_prepared('SELECT pa_id FROM Patient WHERE email = ?', [$email]);
     $result2 = $db->queryResult();
-    $newid =  end($result2)->pa_id;
-     $jwk = issuetoken( $newid, "patient");
-     echo $jwk;
+    $newid = end($result2)->pa_id;
+    $jwk = issuetoken($newid, "patient");
+    echo $jwk;
 
 }
