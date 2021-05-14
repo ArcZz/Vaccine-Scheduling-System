@@ -1,68 +1,72 @@
 <?php
 
 include 'db.php';
+include 'jwtkey.php';
+session_start();
 
-// $method = htmlspecialchars($_POST['method']);
-// $paname = htmlspecialchars($_POST['name']);
-// $ssn = htmlspecialchars($_POST['ssn']);
-// $dob = htmlspecialchars($_POST['dob']);
-// $paaddress = htmlspecialchars($_POST['address']);
-// $paphone = htmlspecialchars($_POST['phone']);
-// $email = htmlspecialchars($_POST['email']);
-// $maxtravel = htmlspecialchars($_POST['distance']);
-// $papassword = htmlspecialchars($_POST['password']);
+
+// {"gender":"option1","fullname":"Tester1",
+// "email":"tester1@gamil.com",
+// "password":"Tester1",
+// "passcon":"Tester1","date":"2021-01-01",
+// "phone":"5739996314","ssn":"123-45-9090",
+// "address":"7813 3rd Ave,44.73313503620341,-73.98688182888938",
+// "long":"44.73313503620341","lat":"-73.98688182888938","max":"40"}
+
+
+
+$paname = htmlspecialchars($_POST['fullname']);
+$ssn = htmlspecialchars($_POST['ssn']);
+$dob = htmlspecialchars($_POST['date']);
+$paaddress = htmlspecialchars($_POST['address']);
+$paphone = htmlspecialchars($_POST['phone']);
+$email = htmlspecialchars($_POST['email']);
+$maxtravel = htmlspecialchars($_POST['max']);
+$papassword = htmlspecialchars($_POST['password']);
 
 //testing
-$method = "signup";
-$paname = "Tester1";
-$ssn = "123-45-9090";
-$dob = "1998-02-12";
-$paaddress = "123 5th Ave, New York, NY,  10003, 44.73313503620341, -73.98688182888938";
-$paphone = "9171112333";
-$email = 'tester1@gamil.com';
-$maxtravel = 20;
-$papassword = "Tester1!";
+// $method = "signup";
+// $paname = "Tester1";
+// $ssn = "123-45-9090";
+// $dob = "1998-02-12";
+// $paaddress = "123 5th Ave, New York, NY,  10003, 44.73313503620341, -73.98688182888938";
+// $paphone = "9171112333";
+// $email = 'tester1@gamil.com';
+// $maxtravel = 20;
+// $papassword = "Tester1!";
 
-if ($method == "signup") {
-  // check is patient already in Database
-  flush();
-  $db->query_prepared('SELECT ssn, email FROM Patient WHERE email = ? OR ssn = ?',
-                      [$email, $ssn]);
-  $result = $db->queryResult();
-  $resultCount = count($result);
-  // echo "Count:";
-  // echo $resultCount;
+// check is patient already in Database
+flush();
+$db->prepareOn();
+$db->query_prepared('SELECT pa_id FROM Patient WHERE ssn = ?',
+    [$ssn]);
+$result = $db->queryResult();
 
-  if ($resultCount > 0){
-    echo "0"; //patient already exists
-  }
-  else{ // create new patient
+if (isset($result[0]->pa_id)) {
+    echo 0; //patient already exists
+} else { // create new patient
     //echo "1";
-    $birthyear = (int)explode('-', $dob)[0];
-    if($birthyear < 1980){
-      $pid = 1;
+    $birthyear = (int) explode('-', $dob)[0];
+    if ($birthyear < 1980) {
+        $pid = 1;
+    } elseif ($birthyear >= 1980 && $birthyear < 2010) {
+        $pid = 2;
+    } else {
+        $pid = 3;
     }
-    elseif($birthyear >= 1980 && $birthyear < 2010){
-      $pid = 2;
-    }
-    else{
-      $pid = 3;
-    }
-
+  
     $db->query_prepared('INSERT INTO Patient(pa_name, ssn, dob, pa_address,
                         pa_phone, email, max_travel_distance, pa_password, p_number)
                         VALUES(?,?,?,?,?,?,?,?,?);',
-                        [$paname, $ssn, $dob,$paaddress,
-                        $paphone, $email, $maxtravel, $papassword, $pid]);
+        [$paname, $ssn, $dob, $paaddress,
+            $paphone, $email, $maxtravel, $papassword, $pid]);
+    
+    $result2 = $db->queryResult();
+    
     $db->query_prepared('SELECT pa_id FROM Patient WHERE email = ?', [$email]);
     $result2 = $db->queryResult();
-    foreach($result2 as $row){
-      echo $row->pa_id;    //echo pa_id of the new patient
-    }
+    $newid =  end($result2)->pa_id;
+     $jwk = issuetoken( $newid, "patient");
+     echo $jwk;
 
-  }
-
-}
-else{
-  echo "-1"; //if failed
 }

@@ -44,7 +44,7 @@
                                 <div class="form-group">
                                     <label>Full Name</label>
                                     <input type="text" class="form-control " name="fullname" id="fullname">
-                                     <span class="invalid-feedback" id="messageBox"></span> 
+
                                     <!-- <div  class="invalid-feedback">
                                     
                                     </div> -->
@@ -52,28 +52,28 @@
                                 <!-- form-row end.// -->
                                 <div class="form-group">
                                     <label>Email address</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="unique-id-here">
-                                    <span class="invalid-feedback" id="messageBox"></span> 
+                                    <input type="email" class="form-control" name="email" id="email">
+
                                     <!-- <small id="emailHelp" class="form-text text-muted">Email address will be your
                                         username.</small> -->
 
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col">
                                         <label>Create password</label>
-                                        <input class="form-control" type="password">
+                                        <input name="password" id="password" class="form-control" type="password">
                                     </div>
                                     <!-- form-group end.// -->
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col">
                                         <label>Confirm password</label>
-                                        <input class="form-control" type="password">
+                                        <input name="passcon" id="passcon" class="form-control" type="password">
                                     </div>
                                     <!-- form-group end.// -->
                                 </div>
 
                                 <div class="form-group ">
                                     <label for="example-date-input">Date of birth</label>
-                                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                    <input name="date" id="date" class="form-control" type="date" value="2021-01-01">
 
                                 </div>
                                 <!-- form-group end.// -->
@@ -82,13 +82,13 @@
                                 <div class="form-row">
                                     <div class="col form-group">
                                         <label>Phone Number </label>
-                                        <input type="text" class="form-control" placeholder="">
+                                        <input name="phone" id="phone" type="text" class="form-control" placeholder="">
                                     </div>
                                     <!-- form-group end.// -->
                                     <div class="col form-group">
                                         <label>SSN</label>
-                                        <input type="email" class="form-control" id="SSN" placeholder="###-##-####"
-                                            maxlength="12">
+                                        <input name="ssn" id="ssn" type="text" class="form-control" 
+                                            placeholder="###-##-####">
 
 
                                     </div>
@@ -99,7 +99,7 @@
                                 <!-- form-group end.// -->
                                 <div class="form-group">
                                     <label> Address</label>
-                                    <input type="email" class="form-control" placeholder="">
+                                    <input name="address" id="address"  type="text" class="form-control" placeholder="">
                                     <small class="form-text text-muted">We'll never share your email with anyone
                                         else.</small>
                                 </div>
@@ -108,14 +108,14 @@
 
                                 <!-- form-group end.// -->
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col">
                                         <label>longitude</label>
-                                        <input type="text" class="form-control">
+                                        <input  name="long" id="long" type="text" class="form-control">
                                     </div>
                                     <!-- form-group end.// -->
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col">
                                         <label>latitude</label>
-                                        <input type="text" class="form-control">
+                                        <input name="lat" id="lat"  type="text" class="form-control">
                                     </div>
                                     <!-- form-group end.// -->
                                 </div>
@@ -124,16 +124,20 @@
 
 
                                 <!-- form-row.// -->
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label>Max travel distance preference (miles)</label>
-                                    <input class="form-control" type="number">
+                                    <input  name="max" id="max"   class="form-control" type="number">
                                 </div>
-                                <br>
+                          
+                               
+                                    <p id="successmsg" class=" text-center"> </p>
+
 
 
 
                                 <!-- form-group end.// -->
                                 <div class="form-group">
+                                    
                                     <button type="submit" id="subumit" class="btn btn-primary btn-block"> Register
                                     </button>
                                 </div>
@@ -168,7 +172,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-
 
     <script src="../public/js/signup.js"></script>
 
