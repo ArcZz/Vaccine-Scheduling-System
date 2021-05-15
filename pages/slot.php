@@ -1,11 +1,14 @@
 <?php include("header.php");
 //include '../api/jwtkey.php';
-include '../api/db.php';
+include '../api/slotfetch.php';
 ?>
 
 <body>
     <div class="main-wrapper">
          <?php $identity = "Patient"; $num = 1; include("menubar.php");
+         $id = $patientData->pa_id;
+         header('Location:signup.php');
+         // header("Location: slot.php");
 
          ?>
         <div class="page-wrapper">
