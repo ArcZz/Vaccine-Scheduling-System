@@ -20,6 +20,8 @@ use Composer\Semver\VersionParser;
 
 
 
+
+
 class InstalledVersions
 {
 private static $installed = array (
@@ -30,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '4dfff7ec3d5f38de6eb55b63077357c813d941c1',
+    'reference' => '4b9cb2a91fe0d6ad7182ee04572699acc770f857',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +44,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '4dfff7ec3d5f38de6eb55b63077357c813d941c1',
+      'reference' => '4b9cb2a91fe0d6ad7182ee04572699acc770f857',
+    ),
+    'driehle/php-crypt-md5' => 
+    array (
+      'pretty_version' => 'v3.0.0',
+      'version' => '3.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5651b3b1dd0a5b7ae16c1673b542ba8611a73eaf',
     ),
     'ezsql/ezsql' => 
     array (
@@ -95,7 +106,6 @@ $packages = array();
 foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
-
 
 if (1 === \count($packages)) {
 return $packages[0];
@@ -292,6 +302,7 @@ self::$installedByVendor = array();
 
 
 
+
 private static function getInstalled()
 {
 if (null === self::$canGetVendors) {
@@ -301,8 +312,7 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
-
- foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
+foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];
 } elseif (is_file($vendorDir.'/composer/installed.php')) {
