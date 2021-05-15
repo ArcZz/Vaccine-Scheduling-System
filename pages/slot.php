@@ -10,8 +10,6 @@ include '../api/db.php';
          $id = 1;
 
          ?>
-
-
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
@@ -37,7 +35,7 @@ include '../api/db.php';
                                             <tr>
                                                 <td>8:00 AM to 12:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 1>
+                                                    <input type="checkbox" name = "slot[]" value = 1 >
                                                 </td>
                                                 <td class="text-center">
                                                     <input type="checkbox" name = "slot[]" value = 4>

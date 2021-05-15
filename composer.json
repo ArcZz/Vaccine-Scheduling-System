@@ -1,6 +1,8 @@
 {
     "require": {
         "ezsql/ezsql": "^5.1",
-        "firebase/php-jwt": "^5.2"
+        "firebase/php-jwt": "^5.2",
+        "driehle/php-crypt-md5": "^3.0",
+        "whitehat101/apr1-md5": "^1.0"
     }
 }

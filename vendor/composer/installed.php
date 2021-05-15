@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '4dfff7ec3d5f38de6eb55b63077357c813d941c1',
+    'reference' => 'fc209bb08a212e49beb2093bb2e0a2c44c20dedd',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '4dfff7ec3d5f38de6eb55b63077357c813d941c1',
+      'reference' => 'fc209bb08a212e49beb2093bb2e0a2c44c20dedd',
+    ),
+    'driehle/php-crypt-md5' => 
+    array (
+      'pretty_version' => 'v3.0.0',
+      'version' => '3.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5651b3b1dd0a5b7ae16c1673b542ba8611a73eaf',
     ),
     'ezsql/ezsql' => 
     array (
@@ -53,6 +62,15 @@
       array (
         0 => '1.0',
       ),
+    ),
+    'whitehat101/apr1-md5' => 
+    array (
+      'pretty_version' => 'v1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8b261c9fc0481b4e9fa9d01c6ca70867b5d5e819',
     ),
   ),
 );

@@ -16,6 +16,10 @@ class ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1
         array (
             'ezsql\\' => 6,
         ),
+        'W' => 
+        array (
+            'WhiteHat101\\Crypt\\' => 18,
+        ),
         'P' => 
         array (
             'Psr\\Container\\' => 14,
@@ -31,6 +35,10 @@ class ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1
         array (
             0 => __DIR__ . '/..' . '/ezsql/ezsql/lib',
         ),
+        'WhiteHat101\\Crypt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/whitehat101/apr1-md5/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -38,6 +46,16 @@ class ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1
         'Firebase\\JWT\\' => 
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'M' => 
+        array (
+            'Md5Crypt\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/driehle/php-crypt-md5/library',
+            ),
         ),
     );
 
@@ -50,6 +68,7 @@ class ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1::$classMap;
 
         }, null, ClassLoader::class);
