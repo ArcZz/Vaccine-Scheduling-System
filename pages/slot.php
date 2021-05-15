@@ -133,6 +133,16 @@ include '../api/slotfetch.php';
                         echo "test test <br/>";
                             if(isset($_POST['submit-slot'])){
                               if(!empty($_POST['slot'])){
+                                // check and delete unchecked slot
+                                foreach($slotArray as $old){
+                                  if(!in_array($old, $_POST['slot'])){
+                                    $db->flush();
+                                    $db->query_prepared('DELETE FROM PatientPreferredSlot WHERE sid = ? AND pa_id = ?',
+                                                        [$old, $id]);
+                                  }
+                                }
+
+                                // check and add new preferred slot
                                 foreach($_POST['slot'] as $selected){
                                   //echo "selected slot#: ".$selected."<br/>";
                                   // echo gettype($_POST['slot']);
@@ -143,7 +153,6 @@ include '../api/slotfetch.php';
                                   $resultCount = count($result);
                                   if($resultCount == 0){
                                     // if not exist in DB, then add to DB
-                                    flush();
                                     $db->query_prepared('INSERT INTO PatientPreferredSlot(sid, pa_id)
                                                         VALUES(?,?);',
                                                         [$selected, $id]);
@@ -157,13 +166,6 @@ include '../api/slotfetch.php';
                                 echo '<pre>'; print_r($slotArray); echo '</pre>';
                               }
                             }
-                            $slotArray = array();
-                            $db->query_prepared('SELECT sid FROM PatientPreferredSlot WHERE pa_id = ?', [$paid] );
-                            $slots = $db->queryResult();
-                            // echo gettype($slots);
-                              foreach($slots as $slot){
-                                array_push($slotArray, $slot->sid);
-                              }
 
                         ?>
 

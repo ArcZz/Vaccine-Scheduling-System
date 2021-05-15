@@ -7,8 +7,8 @@ use function ezsql\functions\where;
 include 'profilefetch.php';
 // include 'jwtkey.php';
 
-// $paid = $patientData->pa_id;
-$paid = 2;
+$paid = $patientData->pa_id;
+// $paid = 1;
 $slotArray = array();
 
 flush();
