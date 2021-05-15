@@ -6,15 +6,19 @@ include '../api/db.php';
 <body>
     <div class="main-wrapper">
          <?php $identity = "Patient"; $num = 1; include("menubar.php");
-        //  $id = backid($k);
-         $id = 1;
 
          ?>
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <form action = "#" method = "POST">
+                      <?php if ($failreport == 0) {
+                          echo ' <div class="alert alert-danger" role="alert">  No data found or No permission, please login again </div>';
+                      }
+                        echo '<pre>'; print_r($slotArray); echo '</pre>';
+                      ?>
+                        <!-- <form action = "" method = "POST" > -->
+                        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <h3 class="page-title">Preferred Time Slot</h3>
                             <div class="row">
                                 <div class="table-responsive">
@@ -35,76 +39,80 @@ include '../api/db.php';
                                             <tr>
                                                 <td>8:00 AM to 12:00 PM</td>
                                                 <td class="text-center">
+<<<<<<< HEAD
                                                     <input type="checkbox" name = "slot[]" value = 1 >
+=======
+                                                    <input type="checkbox" name = "slot[]" value = 1 <?php if(in_array('1', $slotArray)){echo 'checked';} ?> >
+>>>>>>> 3c5dc0d1bef2b0e8d516515c5027b20633efd282
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 4>
+                                                    <input type="checkbox" name = "slot[]" value = 4 <?php if(in_array('4', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 7>
+                                                    <input type="checkbox" name = "slot[]" value = 7 <?php if(in_array('7', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 10>
+                                                    <input type="checkbox" name = "slot[]" value = 10 <?php if(in_array('10', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 13>
+                                                    <input type="checkbox" name = "slot[]" value = 13 <?php if(in_array('13', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 16>
+                                                    <input type="checkbox" name = "slot[]" value = 16 <?php if(in_array('16', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 19>
+                                                    <input type="checkbox" name = "slot[]" value = 19 <?php if(in_array('19', $slotArray)){echo 'checked';} ?>>
                                                 </td>
 
                                             </tr>
                                             <tr>
                                                 <td>12:00 PM to 16:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 2>
+                                                    <input type="checkbox" name = "slot[]" value = 2 <?php if(in_array('2', $slotArray)){echo 'checked';} ?>>
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 5>
+                                                    <input type="checkbox" name = "slot[]" value = 5 <?php if(in_array('5', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 8>
+                                                    <input type="checkbox" name = "slot[]" value = 8 <?php if(in_array('8', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 11>
+                                                    <input type="checkbox" name = "slot[]" value = 11 <?php if(in_array('11', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 14>
+                                                    <input type="checkbox" name = "slot[]" value = 14 <?php if(in_array('14', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 17>
+                                                    <input type="checkbox" name = "slot[]" value = 17 <?php if(in_array('17', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 20>
+                                                    <input type="checkbox" name = "slot[]" value = 20 <?php if(in_array('20', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>16:00 PM to 20:00 PM</td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 3>
+                                                    <input type="checkbox" name = "slot[]" value = 3 <?php if(in_array('3', $slotArray)){echo 'checked';} ?>>
                                                 </td>
 
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 6>
+                                                    <input type="checkbox" name = "slot[]" value = 6 <?php if(in_array('6', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 9>
+                                                    <input type="checkbox" name = "slot[]" value = 9 <?php if(in_array('9', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 12>
+                                                    <input type="checkbox" name = "slot[]" value = 12 <?php if(in_array('12', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 15>
+                                                    <input type="checkbox" name = "slot[]" value = 15 <?php if(in_array('15', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 18>
+                                                    <input type="checkbox" name = "slot[]" value = 18 <?php if(in_array('18', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name = "slot[]" value = 21>
+                                                    <input type="checkbox" name = "slot[]" value = 21 <?php if(in_array('21', $slotArray)){echo 'checked';} ?>>
                                                 </td>
                                             </tr>
 
@@ -116,16 +124,17 @@ include '../api/db.php';
 
                             <div class="row">
                                 <div class="col-sm-12 text-center m-t-20">
-                                    <button type="submit" name = "submit-slot" class="btn btn-primary submit-btn">Save Changes</button>
+                                    <button id = "slotsubmit" type="submit" name = "submit-slot" class="btn btn-primary submit-btn" data-toggle="modal" data-target="#save_type">Save Changes</button>
                                 </div>
                             </div>
                         </form>
                         <?php
-                        //echo "test test <br/>";
+                        echo "test test <br/>";
                             if(isset($_POST['submit-slot'])){
                               if(!empty($_POST['slot'])){
                                 foreach($_POST['slot'] as $selected){
                                   //echo "selected slot#: ".$selected."<br/>";
+                                  // echo gettype($_POST['slot']);
                                   $db->flush();
                                   $db->query_prepared('SELECT sid, pa_id FROM PatientPreferredSlot WHERE sid = ? AND pa_id = ?',
                                                       [$selected, $id]);
@@ -139,9 +148,22 @@ include '../api/db.php';
                                                         [$selected, $id]);
                                   }
 
+
+
+
                                 }
+
+                                echo '<pre>'; print_r($slotArray); echo '</pre>';
                               }
                             }
+                            $slotArray = array();
+                            $db->query_prepared('SELECT sid FROM PatientPreferredSlot WHERE pa_id = ?', [$paid] );
+                            $slots = $db->queryResult();
+                            // echo gettype($slots);
+                              foreach($slots as $slot){
+                                array_push($slotArray, $slot->sid);
+                              }
+
                         ?>
 
                     </div>
@@ -150,9 +172,24 @@ include '../api/db.php';
 
 
             </div>
-          
+
         </div>
+        <!-- <div id="save_type" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="../public/images/2.png" alt="" width="50" height="46">
+                        <h3>Are you sure want to save this new changes?</h3>
+                        <div class="m-t-20"> <a href="#" class="btn btn-outline-secondary "
+                                data-dismiss="modal">Close</a>
+                            <button type="submit" id="update" class="btn btn-outline-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
+
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -160,6 +197,15 @@ include '../api/db.php';
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/select2.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+    //test
+    $(function() {
+        console.log("on");
+        $("#slotsubmit").click(function() {
+
+            });
+    })
+    </script>
 </body>
 
 
