@@ -27,14 +27,14 @@ include("header.php");?>
                                    <div class="form-group">
                                         <label>Provider Name <span class="text-danger"></span> </label>
                                         <input class="form-control" type="text"
-                                            value="<?php echo $prData->pr_name; ?>" name="name" id="name">
+                                            value="<?php echo $prData->pr_name; ?>" name="name" id="name" readonly="">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Provider Type</label>
                                           <input class="form-control" type="text" 
-                                          value="<?php echo $prData->pr_type;?>" name="type" id="type">
+                                          value="<?php echo $prData->pr_type;?>" name="type" id="type" readonly="" >
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@ include("header.php");?>
                                   <div class="form-group">
                                         <label>Provider Address (follow by latitude and longitude)<span class="text-danger"></span> </label>
                                         <input class="form-control"
-                                            value="<?php echo $prData->pr_address;?>" type="text" name="address" id="address">
+                                            value="<?php echo $prData->pr_address;?>" type="text" name="address" id="address" readonly="">
                                     </div>
                                 </div> 
                             </div>
@@ -51,7 +51,7 @@ include("header.php");?>
                                 <div class="col-sm-12">
                                         <div class="form-group">
                                         <label>Provider Number  </label>
-                                        <input class="form-control" value="<?php echo $prData->pr_phone;?>" type="text" name="phone" id="phone">
+                                        <input class="form-control" value="<?php echo $prData->pr_phone;?>" type="text" name="phone" id="phone" readonly="">
                                     </div>
                                 </div>
                             </div>

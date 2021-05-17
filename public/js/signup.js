@@ -35,8 +35,8 @@ $(function() {
                 equalTo: "#password",
             },
             date: {
-              required: true,
-              date: true
+                required: true,
+                date: true
             },
             phone: {
                 digits: true,
@@ -83,11 +83,13 @@ $(function() {
         },
 
         submitHandler: function(form) {
+
             $("#successmsg").removeClass("text-success").removeClass("text-danger");
             $("#successmsg").html("loading......");
             var data = $(form).serializeArray();
             formdata = objectifyForm(data);
             formdata.address = formdata.address + ',' + formdata.long + ',' + formdata.lat;
+            console.log(formdata.date);
 
             $.post("../api/signupControl.php", {
                 fullname: formdata.fullname,
@@ -113,11 +115,11 @@ $(function() {
 
                         console.log(r);
 
-                         window.location.href = "./offer.php"
+                        window.location.href = "./offer.php"
 
 
 
-                    }, 800);
+                    }, 600);
                     //window.location.href = "./pages/main.php"
 
                 } else {

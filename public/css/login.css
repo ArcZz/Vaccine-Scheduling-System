@@ -10,9 +10,7 @@ a {
 
 h1,
 h2,
-h3 {
-
-}
+h3 {}
 
 .myform {
     position: relative;
@@ -80,4 +78,14 @@ form .error {
 
 #second {
     display: none;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+    background-image: none;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+    background-image: none;
 }
