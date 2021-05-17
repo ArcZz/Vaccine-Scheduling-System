@@ -6,7 +6,11 @@
     'aliases' => 
     array (
     ),
+<<<<<<< HEAD
     'reference' => '4b9cb2a91fe0d6ad7182ee04572699acc770f857',
+=======
+    'reference' => 'fc209bb08a212e49beb2093bb2e0a2c44c20dedd',
+>>>>>>> becca69eed632a9803bb4592567564a9c0702c7c
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +22,11 @@
       'aliases' => 
       array (
       ),
+<<<<<<< HEAD
       'reference' => '4b9cb2a91fe0d6ad7182ee04572699acc770f857',
+=======
+      'reference' => 'fc209bb08a212e49beb2093bb2e0a2c44c20dedd',
+>>>>>>> becca69eed632a9803bb4592567564a9c0702c7c
     ),
     'driehle/php-crypt-md5' => 
     array (
@@ -62,6 +70,15 @@
       array (
         0 => '1.0',
       ),
+    ),
+    'whitehat101/apr1-md5' => 
+    array (
+      'pretty_version' => 'v1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8b261c9fc0481b4e9fa9d01c6ca70867b5d5e819',
     ),
   ),
 );
