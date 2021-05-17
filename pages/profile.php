@@ -169,13 +169,36 @@ include "header.php";?>
     <script>
     //test
     $(function() {
-        console.log("on");
-        $("#update").click(
-            function() {
-                console.log("caleed");
-            }
-        )
+       $("#login").submit(function(e) {
+        var identity = "patient";
+        var phonenum = 0;
+        var uemail = "";
+        if ($('#rPatient').is(":checked")) {
+            identity = "patient";
+            uemail = $(" #email ").val();
+            phonenum = 0;
+
+        } else {
+            identity = "provider";
+            uemail = "";
+            phonenum = $("#phone").val();
+
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        var form = $(this);
+        if (form[0].checkValidity() === false) {
+
+            form.addClass('was-validated');
+            return false;
+
+        }
+
+
     })
+    
     </script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
