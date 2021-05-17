@@ -3,12 +3,11 @@
 use function ezsql\functions\eq;
 use function ezsql\functions\where;
 
-// include 'db.php';
 include 'profilefetch.php';
 // include 'jwtkey.php';
 
 $paid = $patientData->pa_id;
-//$paid = 3;
+// $paid = 1;
 $slotArray = array();
 
 flush();
@@ -25,7 +24,7 @@ if (is_null($slots)) {
 }
 
 //testing
- 
+ // echo '<pre>'; print_r($slotArray); echo '</pre>';
 // if(in_array('24', $slotArray)){
 //   echo 'found';
 // }

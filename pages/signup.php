@@ -27,12 +27,12 @@
                             <form id="submitform" class=" mt-4">
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" value="option1"
+                                        <input class="form-check-input" type="radio" name="type" value="option1"
                                             checked>
                                         <span class="form-check-label"> Patient</span>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" value="option2"
+                                        <input class="form-check-input" type="radio" name="type" value="option2"
                                             disabled>
                                         <span class="form-check-label"> Provider should cantact admin for account
                                             creation</span>
@@ -46,7 +46,7 @@
                                     <input type="text" class="form-control " name="fullname" id="fullname">
 
                                     <!-- <div  class="invalid-feedback">
-                                    
+
                                     </div> -->
                                 </div>
                                 <!-- form-row end.// -->
@@ -73,7 +73,7 @@
 
                                 <div class="form-group ">
                                     <label for="example-date-input">Date of birth</label>
-                                    <input name="date" id="date" class="form-control" type="date" value="2021-01-01">
+                                    <input name="date" id="date" class="form-control" type="date" >
 
                                 </div>
                                 <!-- form-group end.// -->
@@ -87,7 +87,7 @@
                                     <!-- form-group end.// -->
                                     <div class="col form-group">
                                         <label>SSN</label>
-                                        <input name="ssn" id="ssn" type="text" class="form-control" 
+                                        <input name="ssn" id="ssn" type="text" class="form-control"
                                             placeholder="###-##-####">
 
 
@@ -128,8 +128,8 @@
                                     <label>Max travel distance preference (miles)</label>
                                     <input  name="max" id="max"   class="form-control" type="number">
                                 </div>
-                          
-                               
+
+
                                     <p id="successmsg" class=" text-center"> </p>
 
 
@@ -137,7 +137,7 @@
 
                                 <!-- form-group end.// -->
                                 <div class="form-group">
-                                    
+
                                     <button type="submit" id="submit" class="btn btn-primary btn-block"> Register
                                     </button>
                                 </div>
@@ -172,7 +172,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
     <script src="../public/js/signup.js"></script>

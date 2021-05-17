@@ -20,90 +20,83 @@ use Composer\Semver\VersionParser;
 
 
 
+
+
 class InstalledVersions
 {
 private static $installed = array (
-  'root' => 
+  'root' =>
   array (
     'pretty_version' => 'dev-main',
     'version' => 'dev-main',
-    'aliases' => 
+    'aliases' =>
     array (
     ),
     'reference' => 'becca69eed632a9803bb4592567564a9c0702c7c',
     'name' => '__root__',
   ),
-  'versions' => 
+  'versions' =>
   array (
-    '__root__' => 
+    '__root__' =>
     array (
       'pretty_version' => 'dev-main',
       'version' => 'dev-main',
-      'aliases' => 
+      'aliases' =>
       array (
       ),
       'reference' => 'becca69eed632a9803bb4592567564a9c0702c7c',
     ),
-    'driehle/php-crypt-md5' => 
+    'driehle/php-crypt-md5' =>
     array (
       'pretty_version' => 'v3.0.0',
       'version' => '3.0.0.0',
-      'aliases' => 
+      'aliases' =>
       array (
       ),
       'reference' => '5651b3b1dd0a5b7ae16c1673b542ba8611a73eaf',
     ),
-    'ezsql/ezsql' => 
+    'ezsql/ezsql' =>
     array (
       'pretty_version' => '5.1.1',
       'version' => '5.1.1.0',
-      'aliases' => 
+      'aliases' =>
       array (
       ),
       'reference' => '14968136b7bd4fc6e96ac19cd1fb9d88c87ea4c8',
     ),
-    'firebase/php-jwt' => 
+    'firebase/php-jwt' =>
     array (
       'pretty_version' => 'v5.2.1',
       'version' => '5.2.1.0',
-      'aliases' => 
+      'aliases' =>
       array (
       ),
       'reference' => 'f42c9110abe98dd6cfe9053c49bc86acc70b2d23',
     ),
-    'poly-crypto/poly-crypto' => 
+    'poly-crypto/poly-crypto' =>
     array (
       'pretty_version' => '2.0.0',
       'version' => '2.0.0.0',
-      'aliases' => 
+      'aliases' =>
       array (
       ),
       'reference' => '6c6039cc2de688c5f1149a87731872ca53e5223c',
     ),
-    'psr/container' => 
+    'psr/container' =>
     array (
       'pretty_version' => '1.1.1',
       'version' => '1.1.1.0',
-      'aliases' => 
+      'aliases' =>
       array (
       ),
       'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
     ),
-    'psr/container-implementation' => 
+    'psr/container-implementation' =>
     array (
-      'provided' => 
+      'provided' =>
       array (
         0 => '1.0',
       ),
-    ),
-    'whitehat101/apr1-md5' => 
-    array (
-      'pretty_version' => 'v1.0.0',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8b261c9fc0481b4e9fa9d01c6ca70867b5d5e819',
     ),
   ),
 );
@@ -122,7 +115,6 @@ $packages = array();
 foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
-
 
 if (1 === \count($packages)) {
 return $packages[0];
@@ -319,6 +311,7 @@ self::$installedByVendor = array();
 
 
 
+
 private static function getInstalled()
 {
 if (null === self::$canGetVendors) {
@@ -328,8 +321,7 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
-
- foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
+foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];
 } elseif (is_file($vendorDir.'/composer/installed.php')) {

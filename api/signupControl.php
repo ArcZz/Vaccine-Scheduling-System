@@ -38,8 +38,8 @@ $papassword = htmlspecialchars($_POST['password']);
 // check is patient already in Database
 flush();
 $db->prepareOn();
-$db->query_prepared('SELECT pa_id FROM Patient WHERE ssn = ?',
-    [$ssn]);
+$db->query_prepared('SELECT pa_id FROM Patient WHERE ssn = ? or email = ?',
+    [$ssn, $email]);
 $result = $db->queryResult();
 
 if (isset($result[0]->pa_id)) {
@@ -55,17 +55,17 @@ if (isset($result[0]->pa_id)) {
     } else {
         $pid = 3;
     }
-  
+
     $db->query_prepared('INSERT INTO Patient(pa_name, ssn, dob, pa_address,
                         pa_phone, email, max_travel_distance, pa_password, p_number)
                         VALUES(?,?,?,?,?,?,?,?,?);',
         [$paname, $ssn, $dob, $paaddress,
             $paphone, $email, $maxtravel, $papassword, $pid]);
-    
-    $result2 = $db->queryResult();
- 
 
-    
+    $result2 = $db->queryResult();
+
+
+
     $db->query_prepared('SELECT pa_id FROM Patient WHERE email = ?', [$email]);
     $result2 = $db->queryResult();
     $newid = end($result2)->pa_id;
