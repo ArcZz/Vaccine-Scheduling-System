@@ -50,6 +50,13 @@ class ComposerStaticInit6a1a74f5edb8efb47ffbacacb87cdec1
     );
 
     public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'PolyCrypto' => 
+            array (
+                0 => __DIR__ . '/..' . '/poly-crypto/poly-crypto/src',
+            ),
+        ),
         'M' => 
         array (
             'Md5Crypt\\' => 

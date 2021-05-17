@@ -7,8 +7,8 @@ use function ezsql\functions\where;
 include 'profilefetch.php';
 // include 'jwtkey.php';
 
-// $paid = $patientData->pa_id;
-$paid = 2;
+$paid = $patientData->pa_id;
+//$paid = 3;
 $slotArray = array();
 
 flush();
@@ -25,7 +25,7 @@ if (is_null($slots)) {
 }
 
 //testing
- echo '<pre>'; print_r($slotArray); echo '</pre>';
+ 
 // if(in_array('24', $slotArray)){
 //   echo 'found';
 // }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37bdfade537496dddc112f2ba67c8ce5",
+    "content-hash": "0bc3ab882b8fa432cfba76495e91ba72",
     "packages": [
         {
             "name": "driehle/php-crypt-md5",
@@ -192,6 +192,84 @@
                 "source": "https://github.com/firebase/php-jwt/tree/v5.2.1"
             },
             "time": "2021-02-12T00:02:00+00:00"
+        },
+        {
+            "name": "poly-crypto/poly-crypto",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kensnyder/poly-crypto.git",
+                "reference": "6c6039cc2de688c5f1149a87731872ca53e5223c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kensnyder/poly-crypto/zipball/6c6039cc2de688c5f1149a87731872ca53e5223c",
+                "reference": "6c6039cc2de688c5f1149a87731872ca53e5223c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "kahlan/kahlan": "4.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PolyCrypto": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Ken Snyder",
+                    "email": "kendsnyder@gmail.com"
+                }
+            ],
+            "description": "High-level cryptographic functions that are interoperable between NodeJS and PHP 7.1+",
+            "homepage": "https://github.com/kensnyder/poly-crypto",
+            "keywords": [
+                "AES-256",
+                "AES256GCM",
+                "MD5",
+                "PyCryptodome",
+                "aes",
+                "aes-256-gcm",
+                "aes256",
+                "bcrypt",
+                "cipher",
+                "ciphertext",
+                "crypto",
+                "cryptography",
+                "decrypt",
+                "decryption",
+                "digest",
+                "encrypt",
+                "encryption",
+                "gcm",
+                "hash",
+                "node",
+                "node-forge",
+                "nodejs",
+                "openssl",
+                "php",
+                "random",
+                "sha1",
+                "sha256",
+                "sha512",
+                "slug",
+                "symmetric",
+                "urandom"
+            ],
+            "support": {
+                "issues": "https://github.com/kensnyder/poly-crypto/issues",
+                "source": "https://github.com/kensnyder/poly-crypto/tree/2.0.0"
+            },
+            "time": "2021-03-15T04:25:32+00:00"
         },
         {
             "name": "psr/container",

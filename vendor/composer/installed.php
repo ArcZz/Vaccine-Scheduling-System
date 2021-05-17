@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'fc209bb08a212e49beb2093bb2e0a2c44c20dedd',
+    'reference' => 'becca69eed632a9803bb4592567564a9c0702c7c',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'fc209bb08a212e49beb2093bb2e0a2c44c20dedd',
+      'reference' => 'becca69eed632a9803bb4592567564a9c0702c7c',
     ),
     'driehle/php-crypt-md5' => 
     array (
@@ -46,6 +46,15 @@
       array (
       ),
       'reference' => 'f42c9110abe98dd6cfe9053c49bc86acc70b2d23',
+    ),
+    'poly-crypto/poly-crypto' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6c6039cc2de688c5f1149a87731872ca53e5223c',
     ),
     'psr/container' => 
     array (

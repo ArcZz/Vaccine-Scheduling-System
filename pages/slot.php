@@ -1,5 +1,4 @@
 <?php include("header.php");
-//include '../api/jwtkey.php';
 include '../api/slotfetch.php';
 ?>
 
@@ -7,10 +6,10 @@ include '../api/slotfetch.php';
     <div class="main-wrapper">
          <?php $identity = "Patient"; $num = 1; include("menubar.php");
          $id = $patientData->pa_id;
-         header('Location:signup.php');
-         // header("Location: slot.php");
 
          ?>
+
+
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
@@ -18,7 +17,6 @@ include '../api/slotfetch.php';
                       <?php if ($failreport == 0) {
                           echo ' <div class="alert alert-danger" role="alert">  No data found or No permission, please login again </div>';
                       }
-                        echo '<pre>'; print_r($slotArray); echo '</pre>';
                       ?>
                         <!-- <form action = "" method = "POST" > -->
                         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -42,11 +40,7 @@ include '../api/slotfetch.php';
                                             <tr>
                                                 <td>8:00 AM to 12:00 PM</td>
                                                 <td class="text-center">
-<<<<<<< HEAD
-                                                    <input type="checkbox" name = "slot[]" value = 1 >
-=======
                                                     <input type="checkbox" name = "slot[]" value = 1 <?php if(in_array('1', $slotArray)){echo 'checked';} ?> >
->>>>>>> 3c5dc0d1bef2b0e8d516515c5027b20633efd282
                                                 </td>
                                                 <td class="text-center">
                                                     <input type="checkbox" name = "slot[]" value = 4 <?php if(in_array('4', $slotArray)){echo 'checked';} ?>>
@@ -132,9 +126,19 @@ include '../api/slotfetch.php';
                             </div>
                         </form>
                         <?php
-                        echo "test test <br/>";
+                        // echo "test test <br/>";
                             if(isset($_POST['submit-slot'])){
                               if(!empty($_POST['slot'])){
+                                // check and delete unchecked slot
+                                foreach($slotArray as $old){
+                                  if(!in_array($old, $_POST['slot'])){
+                                    $db->flush();
+                                    $db->query_prepared('DELETE FROM PatientPreferredSlot WHERE sid = ? AND pa_id = ?',
+                                                        [$old, $id]);
+                                  }
+                                }
+
+                                // check and add new preferred slot
                                 foreach($_POST['slot'] as $selected){
                                   //echo "selected slot#: ".$selected."<br/>";
                                   // echo gettype($_POST['slot']);
@@ -142,30 +146,22 @@ include '../api/slotfetch.php';
                                   $db->query_prepared('SELECT sid, pa_id FROM PatientPreferredSlot WHERE sid = ? AND pa_id = ?',
                                                       [$selected, $id]);
                                   $result = $db->queryResult();
-                                  $resultCount = count($result);
-                                  if($resultCount == 0){
+                                  if(!isset($result[0]->sid)){
                                     // if not exist in DB, then add to DB
-                                    flush();
                                     $db->query_prepared('INSERT INTO PatientPreferredSlot(sid, pa_id)
                                                         VALUES(?,?);',
                                                         [$selected, $id]);
                                   }
-
-
-
-
                                 }
 
-                                echo '<pre>'; print_r($slotArray); echo '</pre>';
                               }
+                              else{ //if no slot checked, then delete all
+                                $db->flush();
+                                $db->query_prepared('DELETE FROM PatientPreferredSlot WHERE pa_id = ?',
+                                                    [$id]);
+                              }
+                              echo "<meta http-equiv='refresh' content='0'>";
                             }
-                            $slotArray = array();
-                            $db->query_prepared('SELECT sid FROM PatientPreferredSlot WHERE pa_id = ?', [$paid] );
-                            $slots = $db->queryResult();
-                            // echo gettype($slots);
-                              foreach($slots as $slot){
-                                array_push($slotArray, $slot->sid);
-                              }
 
                         ?>
 
@@ -177,20 +173,7 @@ include '../api/slotfetch.php';
             </div>
 
         </div>
-        <!-- <div id="save_type" class="modal fade delete-modal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="../public/images/2.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to save this new changes?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn btn-outline-secondary "
-                                data-dismiss="modal">Close</a>
-                            <button type="submit" id="update" class="btn btn-outline-primary">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+
     </div>
 
     <div class="sidebar-overlay" data-reff=""></div>
