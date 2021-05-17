@@ -1,13 +1,16 @@
 $(function() {
 
     $("#rPatient").click(function() {
-
+        $("#reportmsg").html("");
+        $("#successmsg").html("");
         $("#ulabel").text("Email Address");
         $("#phone").replaceWith('<input id="email" type="email" class="form-control" name="email" value="" required autofocus> ');
         $("#ufeedback").text(" Email is invalid, eg: xxx@mac.com");
     });
 
     $("#rProvider").click(function() {
+        $("#reportmsg").html("");
+        $("#successmsg").html("");
         $("#ulabel").text("Phone Number");
         $("#email").replaceWith('<input id="phone" type="text" pattern="[0-9]{6,10}"  class="form-control" name="phone" value="" required autofocus> ');
         $("#ufeedback").text("Phone Number is invalid, eg: 5731119999");
@@ -42,7 +45,6 @@ $(function() {
 
         }
 
-
         $.post("api/loginControl.php", {
 
                 who: identity,
@@ -52,8 +54,9 @@ $(function() {
 
             },
             function(r, err) {
+                console.log(r);
                 if (isNaN(r)) {
-                    $("#reportmsg").remove();
+                    $("#reportmsg").html("");
                     $("#successmsg").html("Success login");
                     // var udata = {
                     //     identity: 'patient',
@@ -61,18 +64,20 @@ $(function() {
                     // }
                     Cookies.set('userdata', JSON.stringify(r), { expires: 7, path: '/' });
                     if (identity == "patient") {
-                        window.location.href = "./pages/offer.php"
+                        // window.location.href = "./pages/offer.php"
                     } else {
-                        window.location.href = "./pages/main.php"
+                        //  window.location.href = "./pages/main.php"
                     }
 
 
                 } else {
                     switch (parseInt(r)) {
                         case 2:
+                            $("#successmsg").html("");
                             $("#reportmsg").html("Password failed");
                             break;
                         default:
+                            $("#successmsg").html("");
                             $("#reportmsg").html("Can not find this user");
                     }
 

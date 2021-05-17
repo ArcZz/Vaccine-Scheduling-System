@@ -16,8 +16,7 @@ include 'db.php';
 
 // echo $dbpassword;
   
-// echo password_verify('额螣01',
-//             $dbpassword ) . "<br>";
+echo password_verify('额螣01', $dbpassword ) . "<br>";
   
 // echo password_verify('Password',
 //             $dbpassword );
@@ -26,58 +25,64 @@ include 'db.php';
 // // run below code for our databse
 
 
-$db->query_prepared('Update Patient set pa_password = ?', [$dbpassword] );
-$user = $db->queryResult();
+// $db->query_prepared('Update Patient set pa_password = ?', [$dbpassword] );
+// $user = $db->queryResult();
 
 
-$results = $db->get_results("SELECT COUNT(*) as num FROM Patient");
-//patientnum
-$pnum =  $results[0]->num;
+// $results = $db->get_results("SELECT COUNT(*) as num FROM Patient");
+// //patientnum
+// $pnum =  $results[0]->num;
 
-$results2 = $db->get_results("SELECT COUNT(*) as num FROM Provider");
-//providernum
-$pnum2 =  $results2[0]->num;
+// $results2 = $db->get_results("SELECT COUNT(*) as num FROM Provider");
+// //providernum
+// $pnum2 =  $results2[0]->num;
 
-echo $pnum;
-echo $pnum2;
+// echo $pnum;
+// echo $pnum2;
 
-//update patient
-$password = 'pass';
-for ($i=1; $i<= $pnum; $i++)
-{
-$dbpassword = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
- $db->query_prepared('Update Patient set pa_password = ? WHERE pa_id = ? ', [$dbpassword, $i] );
-$user = $db->queryResult();
-}
-
-
-$password = 'bass';
-for ($i=1; $i<= $pnum2; $i++)
-{
-$dbpassword = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
- $db->query_prepared('Update Provider set pr_password = ? WHERE pr_id = ? ', [$dbpassword, $i] );
-$user = $db->queryResult();
-}
+// //update patient
+// $password = 'pass';
+// for ($i=1; $i<= $pnum; $i++)
+// {
+// $dbpassword = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
+//  $db->query_prepared('Update Patient set pa_password = ? WHERE pa_id = ? ', [$dbpassword, $i] );
+// $user = $db->queryResult();
+// }
 
 
-echo "success";
+// $password = 'bass';
+// for ($i=1; $i<= $pnum2; $i++)
+// {
+// $dbpassword = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
+//  $db->query_prepared('Update Provider set pr_password = ? WHERE pr_id = ? ', [$dbpassword, $i] );
+// $user = $db->queryResult();
+// }
+
+
+// echo "success";
 
 
 
 
 //test only
 //$results2 = $db->get_results("SELECT pa_password FROM Patient WHERE pa_id = 3");
-// $results2 = $db->get_results("SELECT pr_password FROM Provider WHERE pr_id = 3");
-// //providernum
-// $pnum2 =  $results2[0]->pr_password;
+$results2 = $db->get_results("SELECT pr_password FROM Provider WHERE pr_id = 3");
+//providernum
+$pnum2 =  $results2[0]->pr_password;
 
-// echo $pnum2;
+echo $pnum2;
 
-// echo password_verify('额螣01',
-//             $pnum2 ) . "<br>";
+echo password_verify('额螣01',
+            $pnum2 ) . "<br>";
   
-// echo password_verify('bass',
-//             $pnum2 );
+echo password_verify('bass',
+            $pnum2 );
+
+
+
+
+
+
 
 
 
