@@ -7,6 +7,7 @@ function objectifyForm(formArray) {
     return returnArray;
 }
 
+
 $(function() {
 
     $("#submitform").validate({
@@ -33,7 +34,10 @@ $(function() {
             passcon: {
                 equalTo: "#password",
             },
-            date: "required",
+            date: {
+              required: true,
+              date: true
+            },
             phone: {
                 digits: true,
                 required: true,
@@ -66,7 +70,7 @@ $(function() {
                 minlength: "Your password must be at least 5 characters long"
             },
             passcon: "Not the same",
-            date: "required",
+            date: "required, cannot enter a date greater than today",
             phone: "required",
             ssn: {
                 required: "Please provide a ssn",
@@ -103,12 +107,13 @@ $(function() {
 
                     $("#successmsg").html("success registe, login soon");
                     $("#submit").text("loading").prop('disabled', true);
+                    // Cookies.remove('userdata', { path: '/' });
                     Cookies.set('userdata', JSON.stringify(r), { expires: 7, path: '/' });
                     setTimeout(function() {
 
                         console.log(r);
 
-                        // window.location.href = "./offer.php"
+                         window.location.href = "./offer.php"
 
 
 

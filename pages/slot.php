@@ -19,7 +19,7 @@ include '../api/slotfetch.php';
                       }
                       ?>
                         <!-- <form action = "" method = "POST" > -->
-                        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                             <h3 class="page-title">Preferred Time Slot</h3>
                             <div class="row">
                                 <div class="table-responsive">
