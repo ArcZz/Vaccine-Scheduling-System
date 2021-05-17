@@ -9,7 +9,6 @@ include '../api/slotfetch.php';
 
          ?>
 
-
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
@@ -161,6 +160,7 @@ include '../api/slotfetch.php';
                                                     [$id]);
                               }
                               echo "<meta http-equiv='refresh' content='0'>";
+                              echo ' <div class="alert m-t-30 alert-info" role="alert"> Preferred Time Slot updated, Check it out</div>';
                             }
 
                         ?>
@@ -195,5 +195,6 @@ include '../api/slotfetch.php';
 </body>
 
 
+<iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
 
 </html>

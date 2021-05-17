@@ -62,11 +62,12 @@ $(function() {
                     //     identity: 'patient',
                     //     username: $(" #email ").val(),
                     // }
+                    Cookies.remove('userdata', { path: '/' });
                     Cookies.set('userdata', JSON.stringify(r), { expires: 7, path: '/' });
                     if (identity == "patient") {
-                        // window.location.href = "./pages/offer.php"
+                        window.location.href = "./pages/offer.php";
                     } else {
-                        //  window.location.href = "./pages/main.php"
+                        window.location.href = "./pages/main.php";
                     }
 
 

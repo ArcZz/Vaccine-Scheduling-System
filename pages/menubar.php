@@ -1,6 +1,6 @@
  <div class="header">
      <div class="header-left">
-         <a href="main.php" class="logo">
+         <a href="javascript:void(0)" class="logo">
              <span> Vaccine schedule </span>
          </a>
      </div>

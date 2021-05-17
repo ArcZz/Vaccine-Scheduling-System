@@ -15,7 +15,7 @@ if (!isset($_COOKIE['userdata'])) {
     header("Location: ../index.php");
     exit();
 }
-echo $_COOKIE['userdata'];
+//echo $_COOKIE['userdata'];
 //check his cookies
 $failreport = 1;
 $jwtdata = $_COOKIE["userdata"];

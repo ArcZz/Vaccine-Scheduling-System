@@ -29,7 +29,7 @@ if (!isset($iddata)) {
 $finalwho = $iddata['who'];
 
 // this only for patient, if his cookie only for provider, he is not allowed.
-if ($finalwho!= "provider"){
+if ($finalwho != "provider"){
     header("Location: ../index.php");
     exit();
 }
@@ -43,9 +43,9 @@ if (is_null($result)) {
     $failreport = 0;
 }
  
-$patientData = $result[0];
+$prData = $result[0];
 
 // example: how you get value
-// $patientData->pa_id;
-// $patientData->pa_phone;
+// $patientData->pr_id;
+// $patientData->pr_phone;
 
