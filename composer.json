@@ -3,10 +3,16 @@
         "ezsql/ezsql": "^5.1",
         "firebase/php-jwt": "^5.2",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "driehle/php-crypt-md5": "^3.0"
 =======
         "driehle/php-crypt-md5": "^3.0",
         "whitehat101/apr1-md5": "^1.0"
 >>>>>>> becca69eed632a9803bb4592567564a9c0702c7c
+=======
+        "driehle/php-crypt-md5": "^3.0",
+        "whitehat101/apr1-md5": "^1.0",
+        "poly-crypto/poly-crypto": "^2.0"
+>>>>>>> 4caef873ae906a62b0a4c8f9c203f8d98afb7c1f
     }
 }

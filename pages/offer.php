@@ -12,7 +12,7 @@
                         <h4 class="page-title">ALL Offers</h4>
                     </div>
                     <div class="col-sm-4 col-6 text-right m-b-30">
-                        <a href="offer1.html" class="btn btn-success btn-rounded"><i class="fa fa-bell"></i> current new offers</a>
+                        <a href="javascript:void(0)" class="btn btn-success btn-rounded"><i class="fa fa-bell"></i> current new offers</a>
                     </div>
                 </div>
                 <div class="row">

@@ -8,6 +8,7 @@ include '../api/slotfetch.php';
          $id = $patientData->pa_id;
 
          ?>
+
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
@@ -38,11 +39,7 @@ include '../api/slotfetch.php';
                                             <tr>
                                                 <td>8:00 AM to 12:00 PM</td>
                                                 <td class="text-center">
-<<<<<<< HEAD
-                                                    <input type="checkbox" name = "slot[]" value = 1 >
-=======
                                                     <input type="checkbox" name = "slot[]" value = 1 <?php if(in_array('1', $slotArray)){echo 'checked';} ?> >
->>>>>>> 3c5dc0d1bef2b0e8d516515c5027b20633efd282
                                                 </td>
                                                 <td class="text-center">
                                                     <input type="checkbox" name = "slot[]" value = 4 <?php if(in_array('4', $slotArray)){echo 'checked';} ?>>
@@ -163,6 +160,7 @@ include '../api/slotfetch.php';
                                                     [$id]);
                               }
                               echo "<meta http-equiv='refresh' content='0'>";
+                              echo ' <div class="alert m-t-30 alert-info" role="alert"> Preferred Time Slot updated, Check it out</div>';
                             }
 
                         ?>
@@ -197,5 +195,6 @@ include '../api/slotfetch.php';
 </body>
 
 
+<iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
 
 </html>

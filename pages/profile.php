@@ -17,7 +17,8 @@ include "header.php";?>
           if ($failreport == 0) {
               echo ' <div class="alert alert-danger" role="alert">  No data found or No permission, please login again </div>';
           }
-          ?>
+          ?>        
+
 
                         <form id="save-profile" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                             <h3 class="page-title">Patient Infomation</h3>
@@ -86,17 +87,16 @@ include "header.php";?>
                                 </div>
                             </div>
                         </form>
+
+                      
+
                         <?php
                           if(isset($_POST['profilesubmit'])){
                             $paid = $patientData->pa_id;
                             $db->flush();
-                            $db->query_prepared('SELECT * FROM Patient WHERE pa_id =?',
-                                [$paid]);
+                            $db->query_prepared('SELECT * FROM Patient WHERE pa_id =?', [$paid]);
                             $result = $db->queryResult();
 
-                            // echo "test test <br/>";
-                            // echo "db value: ".$result[0]->dob."<br/>";
-                            // echo "form value: ".htmlspecialchars($_POST['dob'])."<br/>";
                             $paname = htmlspecialchars($_POST['name']);
                             $dob = htmlspecialchars($_POST['dob']);
                             $paaddress = htmlspecialchars($_POST['address']);
@@ -134,6 +134,7 @@ include "header.php";?>
                                   [$maxtravel, $paid]);
                             }
                             echo "<meta http-equiv='refresh' content='0'>";
+                            echo ' <div class="alert m-t-30 alert-info" role="alert"> Patient Infomation updated, Check it out</div>';
                           }
 
 
@@ -167,7 +168,8 @@ include "header.php";?>
     <script src="assets/js/select2.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
-    //test
+  
+
     $(function() {
        $("#login").submit(function(e) {
         var identity = "patient";
@@ -197,17 +199,13 @@ include "header.php";?>
         }
 
 
-    })
+    })})
     
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-    <script src="../public/js/profile.js"></script>
 
 </body>
+ <iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
 
-
-<!-- settings23:11-->
 
 </html>

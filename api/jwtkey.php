@@ -3,13 +3,15 @@
 require '../vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
+// this file should never echo anything in future use
 $key = "zz2310jz1jz1433";
 
 function issuetoken($id, $who)
 {
     global $key;
     $time = time();
-    $nextWeek = time() + (10000000);
+    //  7 days; 24 hours; 60 mins; 60 secs
+    $nextWeek = time() + (7 * 24 * 60 * 60);;
     $payload = array(
         "iat" => $time,
         "exp" => $nextWeek,
@@ -39,13 +41,18 @@ function backid($jwt)
 
 
 
-//$k = issuetoken(12,"patient");
+// $k = issuetoken(1,"provider");
 
-// echo $k;
+//  echo $k;
 // echo "/n";
 // $testjwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA5NTU5MDQsImV4cCI6MTYyMDk1NTkwNSwidXNlck5hbWUiOjUyLCJ3aG8iOiJwYXRpZW50In0.sHgBDXuyHeI6bPk5SR6qM4Zvkh8QVL0P4iPRtBgVxdY";
 //$testjwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA5NTU5MDQsImV4cCI6MTYyMDk1NTkwNSwidXNlck5hbWUiOjUyLCJ3aG8iOiJwYXRpZW50In0.sHgBDXuyHeI6bPk5SR6qM4Zvkh8QVL0P4iPRtBgVxdY";
 // $ha = backid($k);
+
+
+// providertest jwk
+//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjEyMzg1NjIsImV4cCI6MTYyMTg0MzM2MiwidXNlck5hbWUiOjEsIndobyI6InByb3ZpZGVyIn0.Z5RMfgGd4WHlm8kHclJtYXZZ72YlyRqorO41O6BeLqw1
+
 
 // echo $ha['id'];
 

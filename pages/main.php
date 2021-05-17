@@ -1,5 +1,8 @@
 
-<?php include("header.php");?>
+<?php 
+include "../api/pridfetch.php";
+
+include("header.php");?>
 <body>
     <div class="main-wrapper">
        <?php $identity = "Provider";$num = 1; include("menubar.php");?>

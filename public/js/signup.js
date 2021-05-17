@@ -107,7 +107,7 @@ $(function() {
 
                     $("#successmsg").html("success registe, login soon");
                     $("#submit").text("loading").prop('disabled', true);
-                    // Cookies.remove('userdata', { path: '/' });
+                    Cookies.remove('userdata', { path: '/' })
                     Cookies.set('userdata', JSON.stringify(r), { expires: 7, path: '/' });
                     setTimeout(function() {
 
