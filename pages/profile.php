@@ -145,20 +145,7 @@ include "header.php";?>
             </div>
 
         </div>
-        <!-- <div id="save_type" class="modal fade delete-modal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="../public/images/2.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to save this new changes?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn btn-outline-secondary "
-                                data-dismiss="modal">Close</a>
-                            <button type="submit" id="update" class="btn btn-outline-primary">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+     
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>

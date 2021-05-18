@@ -10,7 +10,7 @@ include "header.php";?>
             <div class="content">
                 <div class="row">
                     <div class="col-sm-8 col-6">
-                        <h4 class="page-title">ALL Offers</h4>
+                        <h4 class="page-title">Current Offers</h4>
                     </div>
 
                 </div>
@@ -48,11 +48,12 @@ include "header.php";?>
                           }
                         ?>
                         <?php
-                        if (!is_null($patientInfo)) {}
+                        // if (!is_null($patientInfo)) {}
 
 
 
                         ?>
+                        <?php   if (!is_null($patientInfo)) {?>
 
                         <div class="table-responsive">
                             <table class="table table-striped custom-table mb-0">
@@ -71,22 +72,43 @@ include "header.php";?>
 
                                 <tbody>
                                     <tr>
-                                        <td><?php echo $patientInfo->pa_id; ?></td>
-                                        <td><?php echo $patientInfo->aid; ?></td>
-                                        <td><?php echo $patientInfo->offerdt; ?></td>
-                                        <td><?php echo $patientInfo->deadlinedt; ?></td>
-                                        <td><?php echo $patientInfo->replydt; ?></td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="custom-badge status-red dropdown-toggle" href="#"
+                                        <td id="paid"><?php echo $patientInfo->pa_id; ?></td>
+                                        <td id="aid"><?php echo $patientInfo->aid; ?></td>
+                                        <td ><?php echo $patientInfo->offerdt; ?></td>
+                                        <td ><?php echo $patientInfo->deadlinedt; ?></td>
+                                        <td ><?php echo $patientInfo->replydt; ?></td>
+                                        <td id="button">
+
+                                            <?php
+                                             $havePending = 1;
+                                            if($havePending == 0){ ?>
+                                                <div class="dropdown action-label">
+                                                <a class="custom-badge status-blue dropdown-toggle"  href="#"
                                                     data-toggle="dropdown" aria-expanded="false">
-                                                    Inactive
+                                                    ACCEPT
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Active</a>
-                                                    <a class="dropdown-item" href="#">Inactive</a>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#c_type"  href="javascript:void(0);">Cancel</a>
                                                 </div>
                                             </div>
+
+
+                                           <?php   }else{  ?>
+                                            <div class="dropdown action-label">
+                                                <a class="custom-badge status-green dropdown-toggle"  href="#"
+                                                    data-toggle="dropdown" data-toggle="modal" data-target="#delete_patient"  aria-expanded="false">
+                                                    PENDING
+                                                </a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item"  data-toggle="modal" data-target="#a_type" href="javascript:void(0);">Accept</a>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#d_type"  href="javascript:void(0);">Decline</a>
+                                                </div>
+                                            </div>
+
+                                            <?php   } ?>
+
+
+
                                         </td>
 
                                     </tr>
@@ -108,27 +130,29 @@ include "header.php";?>
                             <p><strong>Distance (in Miles): </strong><?php echo $distance; ?> </p>
                             <p><strong>Contact Number: </strong><?php echo $providerInfo->pr_phone; ?> </p>
                         </div>
+                        <?php   } ?>
                     </div>
                 </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div id="delete_tax" class="modal fade delete-modal" role="dialog">
+         <div id="c_type" class="modal fade delete-modal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
-                        <img src="assets/img/sent.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to delete this Tax?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                        <img src="../public/images/2.png" alt="" width="50" height="46">
+                        <h3>Are you sure want to cancel this offer?</h3>
+                        <div class="m-t-20"> <a href="#" class=" btn  m-r-10 btn-outline-secondary "
+                                data-dismiss="modal">Close</a>
+                            <button type="submit" id="decline" class="refresh btn btn-outline-primary">Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
