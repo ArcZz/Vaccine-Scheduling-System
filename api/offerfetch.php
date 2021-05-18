@@ -17,7 +17,7 @@ function distance($lat1, $lon1, $lat2, $lon2) {
 }
 
 $paid = $patientData->pa_id;
-$paid = 4;
+// $paid = 4;
 // echo $paid;
 $havePending = 0;
 $haveAccept = 0;
