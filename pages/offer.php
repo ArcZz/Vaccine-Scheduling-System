@@ -10,35 +10,50 @@ include "header.php";?>
             <div class="content">
                 <div class="row">
                     <div class="col-sm-8 col-6">
-                        <h4 class="page-title">ALL Offers</h4>
+                        <h4 class="page-title">Current Offers</h4>
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <?php
-                        if (is_null($html)) {
+                        if (is_null($patientInfo)) {
+                            if($haveVaccinated == 0){
                               echo ' <div class="alert alert-info alert-dismissible fade show" role="alert">
                             <strong>Note!</strong> There is no current avaiable offer for you currently.
-                              </div> ';
+                            </div> ';
+                          }else{
+                            echo ' <div class="alert alert-info alert-dismissible fade show" role="alert">
+                          <strong>Note!</strong> You have been vaccinated already!
+                          </div> ';
+                          }
                         }else{
-                            if($havePending == 0){
+                            if($haveAccept == 1){
                               // this for accept user
                               echo '<div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong>Note!</strong>  Click ACTION to cancel your accepted offer, Notice you can only 
+                            <strong>Note!</strong>  Click ACTION to cancel your accepted offer, Notice you can only
                             change it once!
                         </div> ';
-                            }else{
+                      }elseif($havePending == 1){
                                 // this for pending user
                                 echo '
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success! </strong> Click ACTION to accept or decline your pending offer, Notice you can only 
+                            <strong>Success! </strong> Click ACTION to accept or decline your pending offer, Notice you can only
                             change it once!
                         </div>';
-                                
-                            }}
+
+                      }
+
+
+                          }
                         ?>
-                        <?php   if (!is_null($html)) {?>
+                        <?php
+                        // if (!is_null($patientInfo)) {}
+
+
+
+                        ?>
+                        <?php   if (!is_null($patientInfo)) {?>
 
                         <div class="table-responsive">
                             <table class="table table-striped custom-table mb-0">
@@ -57,14 +72,14 @@ include "header.php";?>
 
                                 <tbody>
                                     <tr>
-                                        <td id="paid"><?php echo $html->pa_id; ?></td>
-                                        <td id="aid"><?php echo $html->aid; ?></td>
-                                        <td ><?php echo $html->offerdt; ?></td>
-                                        <td ><?php echo $html->deadlinedt; ?></td>
-                                        <td ><?php echo $html->replydt; ?></td>
+                                        <td id="paid"><?php echo $patientInfo->pa_id; ?></td>
+                                        <td id="aid"><?php echo $patientInfo->aid; ?></td>
+                                        <td ><?php echo $patientInfo->offerdt; ?></td>
+                                        <td ><?php echo $patientInfo->deadlinedt; ?></td>
+                                        <td ><?php echo $patientInfo->replydt; ?></td>
                                         <td id="button">
 
-                                            <?php 
+                                            <?php
                                              $havePending = 1;
                                             if($havePending == 0){ ?>
                                                 <div class="dropdown action-label">
@@ -77,7 +92,7 @@ include "header.php";?>
                                                 </div>
                                             </div>
 
-                                            
+
                                            <?php   }else{  ?>
                                             <div class="dropdown action-label">
                                                 <a class="custom-badge status-green dropdown-toggle"  href="#"
@@ -104,46 +119,20 @@ include "header.php";?>
 
 
                         </div>
-                        <div class="row">
-                            <div class=" mt-3 col-md-12">
-                                <div class="card-box">
-                                    <h4 class="card-title">Provider Infomation </h4>
-                                    <p><strong>Name: </strong> You can use the mark tag</p>
-                                    <p><strong>Address: </strong> </p>
-                                    <p><strong>Contact Number: </strong> </p>
-                                </div>
-                            </div>
+                             <div class="row">
+                    <div class=" mt-3 col-md-12">
+                        <div class="card-box">
+                            <h4 class="card-title">Provider Infomation </h4>
+                            <p><strong>Name: </strong> <?php echo $providerInfo->pr_name; ?></p>
+                            <p><strong>Appointment Date: </strong> <?php echo $providerInfo->appdt; ?></p>
+                            <p><strong>Type: </strong><?php echo $providerInfo->pr_type; ?> </p>
+                            <p><strong>Address: </strong><?php echo $providerInfo->pr_address; ?> </p>
+                            <p><strong>Distance (in Miles): </strong><?php echo $distance; ?> </p>
+                            <p><strong>Contact Number: </strong><?php echo $providerInfo->pr_phone; ?> </p>
                         </div>
                         <?php   } ?>
                     </div>
                 </div>
-            </div>
-
-        </div>
-          <div id="a_type" class="modal fade delete-modal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="../public/images/2.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to accept this offer?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn  m-r-10 btn-outline-secondary "
-                                data-dismiss="modal">Close</a>
-                            <button type="submit" id="accept" class=" refresh btn btn-outline-primary">Accept</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <div id="d_type" class="modal fade delete-modal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="../public/images/2.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to decline this offer?</h3>
-                        <div class="m-t-20"> 
-                            <a href="#" class="btn m-r-10  btn-outline-secondary "data-dismiss="modal">Close</a>
-                            <button type="submit" id="decline" class="refresh btn btn-outline-primary">Decline</button>
-                        </div>
                     </div>
                 </div>
             </div>
