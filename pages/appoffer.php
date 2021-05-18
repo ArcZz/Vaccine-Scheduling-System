@@ -1,16 +1,40 @@
 <?php
 include "../api/pridfetch.php";
 
-$results2 = $db->get_results("SELECT COUNT(*) as num FROM Provider");
-//providernum
-$pnum2 =  $results2[0]->num;
+// $results2 = $db->get_results("SELECT COUNT(*) as num FROM Provider");
+// //providernum
+// $pnum2 =  $results2[0]->num;
 
-$con = array("noshow","pending","cancelled","declined");
+$con = array("accepted","noshow","cancelled","declined");
 
-$db->query_prepared('SELECT  COUNT(*) as num FROM AvailableApp a JOIN AppOffer p on a.aid = p.aid WHERE pr_id = ? AND status = ?', [$pr_id , $con[0]] );
+$db->query_prepared('SELECT count(*) num
+                      FROM Provider P LEFT JOIN AvailableApp AA ON P.pr_id = AA.pr_id
+                      LEFT JOIN AppOffer AO ON AA.aid = AO.aid
+                      WHERE status =? AND P.pr_id = ?;', [$con[0], $prData->pr_id] );
+$num = $db->queryResult();
+$accepted = $num[0]->num;
+
+
+$db->query_prepared('SELECT count(*) num
+                      FROM Provider P LEFT JOIN AvailableApp AA ON P.pr_id = AA.pr_id
+                      LEFT JOIN AppOffer AO ON AA.aid = AO.aid
+                      WHERE status =? AND P.pr_id = ?;', [$con[1], $prData->pr_id] );
 $num = $db->queryResult();
 $noshow = $num[0]->num;
-  
+
+$db->query_prepared('SELECT count(*) num
+                    FROM Provider P LEFT JOIN AvailableApp AA ON P.pr_id = AA.pr_id
+                    LEFT JOIN AppOffer AO ON AA.aid = AO.aid
+                    WHERE status =? AND P.pr_id = ?;', [$con[2], $prData->pr_id] );
+$num = $db->queryResult();
+$cancelled = $num[0]->num;
+
+$db->query_prepared('SELECT count(*) num
+                    FROM Provider P LEFT JOIN AvailableApp AA ON P.pr_id = AA.pr_id
+                    LEFT JOIN AppOffer AO ON AA.aid = AO.aid
+                    WHERE status =? AND P.pr_id = ?;', [$con[3], $prData->pr_id] );
+$num = $db->queryResult();
+$declined = $num[0]->num;
 
 include "header.php";?>
 
@@ -27,6 +51,13 @@ $num = 3;include "menubar.php";?>
                 <div class="row">
                     <div class="col-sm-4 col-3">
                         <h4 class="page-title">Patient offers summary</h4>
+                        <?php echo "provider id: ".$prData->pr_id."<br/>";
+                        echo "test".$accepted."<br/>";
+                        echo "test".$noshow."<br/>";
+                        echo "test".$cancelled."<br/>";
+                        echo "test".$declined."<br/>";
+                        ?>
+
                     </div>
 
                 </div>
@@ -35,7 +66,7 @@ $num = 3;include "menubar.php";?>
                         <div class="dash-widget">
                             <span class="dash-widget-bg1"><i class="fa fa-stethoscope" ></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3><?php if(isset($noshow)){echo $noshow; }else{echo 0 ;} ?></h3>
+                                <h3><?php if(isset($accepted)){echo $accepted; }else{echo 0 ;} ?></h3>
                                 <span class="widget-title1">Accepted </span>
                             </div>
                         </div>
@@ -44,7 +75,7 @@ $num = 3;include "menubar.php";?>
                         <div class="dash-widget">
                             <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3>0</h3>
+                                <h3><?php if(isset($noshow)){echo $noshow; }else{echo 0 ;} ?></h3>
                                 <span class="widget-title2">No Show </span>
                             </div>
                         </div>
@@ -53,7 +84,7 @@ $num = 3;include "menubar.php";?>
                         <div class="dash-widget">
                             <span class="dash-widget-bg3"><i class="fa fa-user-md" ></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3>0</h3>
+                                <h3><?php if(isset($cancelled)){echo $cancelled; }else{echo 0 ;} ?></h3>
                                 <span class="widget-title3">Cancelled </span>
                             </div>
                         </div>
@@ -62,7 +93,7 @@ $num = 3;include "menubar.php";?>
                         <div class="dash-widget">
                             <span class="dash-widget-bg4"><i class="fa fa-heartbeat"></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3>0</h3>
+                                <h3><?php if(isset($declined)){echo $declined; }else{echo 0 ;} ?></h3>
                                 <span class="widget-title4">Declined</span>
                             </div>
                         </div>
@@ -74,7 +105,7 @@ $num = 3;include "menubar.php";?>
 
                 <p id="prid" hidden><?php echo $prData->pr_id;?></p>
                 <div class="card p-3">
-                   
+
                     <div class="row">
                         <div class="col-md-12">
 
@@ -98,10 +129,10 @@ $num = 3;include "menubar.php";?>
                                         <th>pa_id</th>
                                         <th>pr_id</th>
                                         <th>Reply Date</th>
-                                        <th>status</th>  
+                                        <th>status</th>
                                     </tr>
                                 </thead>
-                                
+
                                  <tfoot>
                                     <tr>
                                           <th>aid</th>
@@ -112,7 +143,7 @@ $num = 3;include "menubar.php";?>
                                         <th>pa_id</th>
                                         <th>pr_id</th>
                                         <th>Reply Date</th>
-                                        <th>status</th>  
+                                        <th>status</th>
                                     </tr>
                                 </tfoot>
 
@@ -143,7 +174,7 @@ $num = 3;include "menubar.php";?>
 
     <script src="assets/js/jquery-3.2.1.min.js"></script>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
+
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>

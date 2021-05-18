@@ -8,10 +8,10 @@ include 'db.php';
 
 $pr_id = htmlspecialchars($_POST['pr_id']);
 
-$pr_id = 4;
+// $pr_id = 4;
 flush();
 
-$db->query_prepared('SELECT a.aid, a.pr_id, a.appdt, a.number_available, p.pa_id, p.offerdt,p.deadlinedt, p.replydt,p.status FROM AvailableApp a JOIN AppOffer p on a.aid = p.aid WHERE pr_id = ?', [$pr_id] );
+$db->query_prepared('SELECT a.aid, a.pr_id, a.appdt, a.number_available, p.pa_id, p.offerdt,p.deadlinedt, p.replydt,p.status FROM AvailableApp a NATURAL JOIN AppOffer p WHERE pr_id = ?', [$pr_id] );
 $tables = $db->queryResult();
 
 // var_dump($tables);
