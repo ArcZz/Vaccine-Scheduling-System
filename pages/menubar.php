@@ -68,13 +68,19 @@ if ($identity == "Provider") {
         echo ' class="active"';
     }
     ?>>
-                     <a href="main.php"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                     <a href="main.php"><i class="fa fa-calendar"></i> <span>History </span></a>
                  </li>
                  <li <?php if ($num == 2) {
         echo ' class="active"';
     }
     ?>>
                      <a href="add-appointment.php"><i class="fa fa-plus"></i> <span>Add Appointment</span></a>
+                 </li>
+                 <li <?php if ($num == 3) {
+        echo ' class="active"';
+    }
+    ?>>
+                     <a href="appoffer.php"><i class="fa fa-address-book-o"></i> <span>Patients Offer</span></a>
                  </li>
              </ul>
          </div>
