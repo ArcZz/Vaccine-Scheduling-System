@@ -20,7 +20,7 @@ include "header.php";?>
                         if (is_null($html)) {
                               echo ' <div class="alert alert-info alert-dismissible fade show" role="alert">
                             <strong>Note!</strong> There is no current avaiable offer for you currently.
-                        </div> ';
+                              </div> ';
                         }else{
                             if($havePending == 0){
                               // this for accept user
@@ -39,12 +39,12 @@ include "header.php";?>
                             }}
                         ?>
                         <?php   if (!is_null($html)) {?>
-                        
+
                         <div class="table-responsive">
                             <table class="table table-striped custom-table mb-0">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th>patient id </th>
                                         <th>appointment id </th>
                                         <th>offer date</th>
@@ -57,22 +57,43 @@ include "header.php";?>
 
                                 <tbody>
                                     <tr>
-                                        <td><?php echo $html->pa_id; ?></td>
-                                        <td><?php echo $html->aid; ?></td>
-                                        <td><?php echo $html->offerdt; ?></td>
-                                        <td><?php echo $html->deadlinedt; ?></td>
-                                        <td><?php echo $html->replydt; ?></td>
-                                        <td>
-                                            <div class="dropdown action-label">
-                                                <a class="custom-badge status-red dropdown-toggle" href="#"
+                                        <td id="paid"><?php echo $html->pa_id; ?></td>
+                                        <td id="aid"><?php echo $html->aid; ?></td>
+                                        <td ><?php echo $html->offerdt; ?></td>
+                                        <td ><?php echo $html->deadlinedt; ?></td>
+                                        <td ><?php echo $html->replydt; ?></td>
+                                        <td id="button">
+
+                                            <?php 
+                                             $havePending = 1;
+                                            if($havePending == 0){ ?>
+                                                <div class="dropdown action-label">
+                                                <a class="custom-badge status-blue dropdown-toggle"  href="#"
                                                     data-toggle="dropdown" aria-expanded="false">
-                                                    Inactive
+                                                    ACCEPT
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Active</a>
-                                                    <a class="dropdown-item" href="#">Inactive</a>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#c_type"  href="javascript:void(0);">Cancel</a>
                                                 </div>
                                             </div>
+
+                                            
+                                           <?php   }else{  ?>
+                                            <div class="dropdown action-label">
+                                                <a class="custom-badge status-green dropdown-toggle"  href="#"
+                                                    data-toggle="dropdown" data-toggle="modal" data-target="#delete_patient"  aria-expanded="false">
+                                                    PENDING
+                                                </a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item"  data-toggle="modal" data-target="#a_type" href="javascript:void(0);">Accept</a>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#d_type"  href="javascript:void(0);">Decline</a>
+                                                </div>
+                                            </div>
+
+                                            <?php   } ?>
+
+
+
                                         </td>
 
                                     </tr>
@@ -81,38 +102,68 @@ include "header.php";?>
 
                             </table>
 
-                            
+
                         </div>
-                             <div class="row">
-                    <div class=" mt-3 col-md-12">
-                        <div class="card-box">
-                            <h4 class="card-title">Provider Infomation </h4>
-                            <p><strong>Name: </strong> You can use the mark tag</p>
-                            <p><strong>Address: </strong> </p>
-                            <p><strong>Contact Number: </strong> </p>
+                        <div class="row">
+                            <div class=" mt-3 col-md-12">
+                                <div class="card-box">
+                                    <h4 class="card-title">Provider Infomation </h4>
+                                    <p><strong>Name: </strong> You can use the mark tag</p>
+                                    <p><strong>Address: </strong> </p>
+                                    <p><strong>Contact Number: </strong> </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                         <?php   } ?>
+                        <?php   } ?>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div id="delete_tax" class="modal fade delete-modal" role="dialog">
+          <div id="a_type" class="modal fade delete-modal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
-                        <img src="assets/img/sent.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to delete this Tax?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                        <img src="../public/images/2.png" alt="" width="50" height="46">
+                        <h3>Are you sure want to accept this offer?</h3>
+                        <div class="m-t-20"> <a href="#" class="btn  m-r-10 btn-outline-secondary "
+                                data-dismiss="modal">Close</a>
+                            <button type="submit" id="accept" class=" refresh btn btn-outline-primary">Accept</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="d_type" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="../public/images/2.png" alt="" width="50" height="46">
+                        <h3>Are you sure want to decline this offer?</h3>
+                        <div class="m-t-20"> 
+                            <a href="#" class="btn m-r-10  btn-outline-secondary "data-dismiss="modal">Close</a>
+                            <button type="submit" id="decline" class="refresh btn btn-outline-primary">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="c_type" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="../public/images/2.png" alt="" width="50" height="46">
+                        <h3>Are you sure want to cancel this offer?</h3>
+                        <div class="m-t-20"> <a href="#" class=" btn  m-r-10 btn-outline-secondary "
+                                data-dismiss="modal">Close</a>
+                            <button type="submit" id="decline" class="refresh btn btn-outline-primary">Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
