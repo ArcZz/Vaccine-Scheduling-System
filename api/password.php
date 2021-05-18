@@ -23,6 +23,10 @@ include 'db.php';
 
 
 // // run below code for our databse
+// $password = "bass";
+// $dbpassword = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
+//  $db->query_prepared('Update Provider set pr_password = ? WHERE pr_id = ? ', [$dbpassword, 1] );
+
 
 
 $db->query_prepared('Update Patient set pa_password = ?', [$dbpassword] );
@@ -31,11 +35,13 @@ $user = $db->queryResult();
 
 $results = $db->get_results("SELECT COUNT(*) as num FROM Patient");
 //patientnum
-$pnum =  $results[0]->num;
+// $pnum =  $results[0]->num;
+$pnum = 31;
 
 $results2 = $db->get_results("SELECT COUNT(*) as num FROM Provider");
 //providernum
 $pnum2 =  $results2[0]->num;
+
 
 echo $pnum;
 echo $pnum2;
