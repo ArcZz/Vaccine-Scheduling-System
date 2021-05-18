@@ -120,7 +120,7 @@ include "header.php";?>
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/select2.min.js"></script>
     <script src="assets/js/app.js"></script>
-    <!-- <script src="../public/js/appoffer.js"></script> -->
+    <script src="../public/js/patientoffer.js"></script>
 </body>
 
 </html>
