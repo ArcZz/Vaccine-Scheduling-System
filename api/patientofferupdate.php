@@ -19,7 +19,7 @@ if ($method == "accept") {
   $result = $db->queryResult();
   echo 1;  //accept ok
 }
-else if($method == "declined"){
+else if($method == "decline"){
      $db->query_prepared('UPDATE AppOffer SET status = "declined", replydt = NOW()  WHERE pa_id = ? AND aid = ? ',[$paid, $aid]);
   $result = $db->queryResult();
 

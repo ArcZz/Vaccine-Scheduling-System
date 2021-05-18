@@ -80,7 +80,7 @@ include "header.php";?>
                                         <td id="button">
 
                                             <?php
-                                             $havePending = 1;
+                                            
                                             if($havePending == 0){ ?>
                                                 <div class="dropdown action-label">
                                                 <a class="custom-badge status-blue dropdown-toggle"  href="#"
@@ -106,7 +106,6 @@ include "header.php";?>
                                             </div>
 
                                             <?php   } ?>
-
 
 
                                         </td>
@@ -145,7 +144,35 @@ include "header.php";?>
                         <h3>Are you sure want to cancel this offer?</h3>
                         <div class="m-t-20"> <a href="#" class=" btn  m-r-10 btn-outline-secondary "
                                 data-dismiss="modal">Close</a>
-                            <button type="submit" id="decline" class="refresh btn btn-outline-primary">Cancel</button>
+                            <button type="submit" id="cancel" class="refresh btn btn-outline-primary">Cancel </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <div id="a_type" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="../public/images/2.png" alt="" width="50" height="46">
+                        <h3>Are you sure want to accept this offer?</h3>
+                        <div class="m-t-20"> <a href="#" class=" btn  m-r-10 btn-outline-secondary "
+                                data-dismiss="modal">Close</a>
+                            <button type="submit" id="accept" class="refresh btn btn-outline-primary">Accept</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <div id="d_type" class="modal fade delete-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="../public/images/2.png" alt="" width="50" height="46">
+                        <h3>Are you sure want to decline this offer?</h3>
+                        <div class="m-t-20"> <a href="#" class=" btn  m-r-10 btn-outline-secondary "
+                                data-dismiss="modal">Close</a>
+                            <button type="submit" id="decline" class="refresh btn btn-outline-primary">Decline</button>
                         </div>
                     </div>
                 </div>
