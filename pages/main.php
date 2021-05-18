@@ -32,19 +32,12 @@ $num = 1;include "menubar.php";?>
                 <div class=" m-t-20 row">
                     <div class="col-md-12">
 
-
                         <div id="load" class="d-flex justify-content-center">
                             <div class=" m-40 spinner-border text-primary " style="width: 3rem; height: 3rem;"
                                 role="status">
                                 <span class="sr-only">Loading...</span>
                             </div>
                         </div>
-
-
-
-
-
-
                         <div class="table-responsive">
                             <table   width="100%" id="main" class="table table-striped custom-table">
                                 <thead>
@@ -63,14 +56,7 @@ $num = 1;include "menubar.php";?>
                                         <th>number_available</th>
                                     </tr>
                                 </tfoot>
-
-
-
                             </table>
-
-
-
-
 
                         </div>
                     </div>

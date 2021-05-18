@@ -10,7 +10,7 @@ $(function() {
             },
             function(r, err) {
                 console.log(r);
-                //window.location.href = "./offer.php"
+                window.location.href = "./offer.php"
             }
         );
 
@@ -18,15 +18,35 @@ $(function() {
     $("#decline").click(function() {
 
 
-        console.log("hah");
-        // window.location.href = "./offer.php"
+
+        console.log($(" #paid ").html());
+        $.post("../api/patientofferupdate.php", {
+                method: "decline",
+                paid: $(" #paid ").html(),
+                aid: $(" #aid ").html(),
+            },
+            function(r, err) {
+                console.log(r);
+                window.location.href = "./offer.php"
+            }
+        );
 
     });
 
-    $("#decline").click(function() {
+    $("#cancel").click(function() {
 
-        console.log("hah");
-        // window.location.href = "./offer.php"
+
+        console.log($(" #paid ").html());
+        $.post("../api/patientofferupdate.php", {
+                method: "cancel",
+                paid: $(" #paid ").html(),
+                aid: $(" #aid ").html(),
+            },
+            function(r, err) {
+                console.log(r);
+                window.location.href = "./offer.php"
+            }
+        );
 
     });
 
