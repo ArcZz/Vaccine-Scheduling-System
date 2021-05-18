@@ -51,11 +51,12 @@ $num = 3;include "menubar.php";?>
                 <div class="row">
                     <div class="col-sm-4 col-3">
                         <h4 class="page-title">Patient offers summary</h4>
-                        <?php echo "provider id: ".$prData->pr_id."<br/>";
-                        echo "test".$accepted."<br/>";
-                        echo "test".$noshow."<br/>";
-                        echo "test".$cancelled."<br/>";
-                        echo "test".$declined."<br/>";
+                        <?php
+                        // echo "provider id: ".$prData->pr_id."<br/>";
+                        // echo "test".$accepted."<br/>";
+                        // echo "test".$noshow."<br/>";
+                        // echo "test".$cancelled."<br/>";
+                        // echo "test".$declined."<br/>";
                         ?>
 
                     </div>
