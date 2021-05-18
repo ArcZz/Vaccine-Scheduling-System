@@ -80,7 +80,7 @@ if ($identity == "Provider") {
         echo ' class="active"';
     }
     ?>>
-                     <a href="appoffer.php"><i class="fa fa-address-book-o"></i> <span>Patients Offer</span></a>
+                     <a href="appoffer.php"><i class="fa fa-address-book-o"></i> <span>Assigned Offer</span></a>
                  </li>
              </ul>
          </div>

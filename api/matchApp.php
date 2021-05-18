@@ -229,9 +229,21 @@ foreach ($resultPairs as $pair) {
   echo "pa_id: ".$pa_id.'<br/>';
   echo "deadline: ".$deadline.'<br/>';
   echo "now: ".$now.'<br/>';
-  $db->query_prepared('INSERT INTO AppOffer(pa_id, aid, offerdt, deadlinedt,status)
-                      VALUES(?,?,?,?,?);',
-                      [$pa_id, $aid, $now, $deadline, $status]);
+
+  $db->flush();
+  $db->query_prepared('SELECT pa_id, aid FROM AppOffer WHERE pa_id = ? AND aid = ?',
+                      [$pa_id, $aid]);
+  $result = $db->queryResult();
+  if(!isset($result[0]->pa_id)){
+    // if not exist in DB, then add to DB
+    $db->query_prepared('INSERT INTO AppOffer(pa_id, aid, offerdt, deadlinedt,status)
+                        VALUES(?,?,?,?,?);',
+                        [$pa_id, $aid, $now, $deadline, $status]);
+  }else{
+    $db->query_prepared('Update AppOffer SET status= "pending", replydt = NULL, offerdt =?, deadlinedt =? WHERE pa_id = ? AND aid = ?',
+                                                    [$now, $deadline, $pa_id, $aid]);
+  }
+
 }
 
 
