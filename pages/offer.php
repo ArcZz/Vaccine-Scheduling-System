@@ -17,34 +17,48 @@ include "header.php";?>
                 <div class="row">
                     <div class="col-md-12">
                         <?php
-                        if (is_null($html)) {
+                        if (is_null($patientInfo)) {
+                            if($haveVaccinated == 0){
                               echo ' <div class="alert alert-info alert-dismissible fade show" role="alert">
                             <strong>Note!</strong> There is no current avaiable offer for you currently.
-                        </div> ';
+                            </div> ';
+                          }else{
+                            echo ' <div class="alert alert-info alert-dismissible fade show" role="alert">
+                          <strong>Note!</strong> You have been vaccinated already!
+                          </div> ';
+                          }
                         }else{
-                            if($havePending == 0){
+                            if($haveAccept == 1){
                               // this for accept user
                               echo '<div class="alert alert-info alert-dismissible fade show" role="alert">
-                            <strong>Note!</strong>  Click ACTION to cancel your accepted offer, Notice you can only 
+                            <strong>Note!</strong>  Click ACTION to cancel your accepted offer, Notice you can only
                             change it once!
                         </div> ';
-                            }else{
+                      }elseif($havePending == 1){
                                 // this for pending user
                                 echo '
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success! </strong> Click ACTION to accept or decline your pending offer, Notice you can only 
+                            <strong>Success! </strong> Click ACTION to accept or decline your pending offer, Notice you can only
                             change it once!
                         </div>';
-                                
-                            }}
+
+                      }
+
+
+                          }
                         ?>
-                        <?php   if (!is_null($html)) {?>
-                        
+                        <?php
+                        if (!is_null($patientInfo)) {}
+
+
+
+                        ?>
+
                         <div class="table-responsive">
                             <table class="table table-striped custom-table mb-0">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th>patient id </th>
                                         <th>appointment id </th>
                                         <th>offer date</th>
@@ -57,11 +71,11 @@ include "header.php";?>
 
                                 <tbody>
                                     <tr>
-                                        <td><?php echo $html->pa_id; ?></td>
-                                        <td><?php echo $html->aid; ?></td>
-                                        <td><?php echo $html->offerdt; ?></td>
-                                        <td><?php echo $html->deadlinedt; ?></td>
-                                        <td><?php echo $html->replydt; ?></td>
+                                        <td><?php echo $patientInfo->pa_id; ?></td>
+                                        <td><?php echo $patientInfo->aid; ?></td>
+                                        <td><?php echo $patientInfo->offerdt; ?></td>
+                                        <td><?php echo $patientInfo->deadlinedt; ?></td>
+                                        <td><?php echo $patientInfo->replydt; ?></td>
                                         <td>
                                             <div class="dropdown action-label">
                                                 <a class="custom-badge status-red dropdown-toggle" href="#"
@@ -81,19 +95,21 @@ include "header.php";?>
 
                             </table>
 
-                            
+
                         </div>
                              <div class="row">
                     <div class=" mt-3 col-md-12">
                         <div class="card-box">
                             <h4 class="card-title">Provider Infomation </h4>
-                            <p><strong>Name: </strong> You can use the mark tag</p>
-                            <p><strong>Address: </strong> </p>
-                            <p><strong>Contact Number: </strong> </p>
+                            <p><strong>Name: </strong> <?php echo $providerInfo->pr_name; ?></p>
+                            <p><strong>Appointment Date: </strong> <?php echo $providerInfo->appdt; ?></p>
+                            <p><strong>Type: </strong><?php echo $providerInfo->pr_type; ?> </p>
+                            <p><strong>Address: </strong><?php echo $providerInfo->pr_address; ?> </p>
+                            <p><strong>Distance (in Miles): </strong><?php echo $distance; ?> </p>
+                            <p><strong>Contact Number: </strong><?php echo $providerInfo->pr_phone; ?> </p>
                         </div>
                     </div>
                 </div>
-                         <?php   } ?>
                     </div>
                 </div>
             </div>
