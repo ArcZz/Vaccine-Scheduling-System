@@ -69,7 +69,7 @@ $(function() {
                     if (identity == "patient") {
                         window.location.href = "./pages/offer.php";
                     } else {
-                        window.location.href = "./pages/main.php";
+                        window.location.href = "./pages/appoffer.php";
                     }
 
 

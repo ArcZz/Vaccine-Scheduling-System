@@ -10,7 +10,7 @@ $con = array("accepted","pending","cancelled","declined");
 $db->query_prepared('SELECT count(*) num
                       FROM Provider P LEFT JOIN AvailableApp AA ON P.pr_id = AA.pr_id
                       LEFT JOIN AppOffer AO ON AA.aid = AO.aid
-                      WHERE status =? AND P.pr_id = ?;', [$con[0], $prData->pr_id] );
+                      WHERE status =? AND P.pr_id = ? ;', [$con[0], $prData->pr_id] );
 $num = $db->queryResult();
 $accepted = $num[0]->num;
 
@@ -50,7 +50,7 @@ $num = 3;include "menubar.php";?>
 
                 <div class="row">
                     <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Patient offers summary</h4>
+                        <h4 class="page-title">Offers summary</h4>
                         <?php
                         // echo "provider id: ".$prData->pr_id."<br/>";
                         // echo "test".$accepted."<br/>";
