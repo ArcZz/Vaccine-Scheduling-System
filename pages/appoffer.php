@@ -5,7 +5,7 @@ include "../api/pridfetch.php";
 // //providernum
 // $pnum2 =  $results2[0]->num;
 
-$con = array("accepted","noshow","cancelled","declined");
+$con = array("accepted","pending","cancelled","declined");
 
 $db->query_prepared('SELECT count(*) num
                       FROM Provider P LEFT JOIN AvailableApp AA ON P.pr_id = AA.pr_id
@@ -20,7 +20,7 @@ $db->query_prepared('SELECT count(*) num
                       LEFT JOIN AppOffer AO ON AA.aid = AO.aid
                       WHERE status =? AND P.pr_id = ?;', [$con[1], $prData->pr_id] );
 $num = $db->queryResult();
-$noshow = $num[0]->num;
+$pending = $num[0]->num;
 
 $db->query_prepared('SELECT count(*) num
                     FROM Provider P LEFT JOIN AvailableApp AA ON P.pr_id = AA.pr_id
@@ -54,7 +54,7 @@ $num = 3;include "menubar.php";?>
                         <?php
                         // echo "provider id: ".$prData->pr_id."<br/>";
                         // echo "test".$accepted."<br/>";
-                        // echo "test".$noshow."<br/>";
+                        // echo "test".$pending."<br/>";
                         // echo "test".$cancelled."<br/>";
                         // echo "test".$declined."<br/>";
                         ?>
@@ -76,8 +76,8 @@ $num = 3;include "menubar.php";?>
                         <div class="dash-widget">
                             <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3><?php if(isset($noshow)){echo $noshow; }else{echo 0 ;} ?></h3>
-                                <span class="widget-title2">No Show </span>
+                                <h3><?php if(isset($pending)){echo $pending; }else{echo 0 ;} ?></h3>
+                                <span class="widget-title2">Pending </span>
                             </div>
                         </div>
                     </div>
